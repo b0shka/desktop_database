@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Add_user</class>
+ <widget class="QDialog" name="Add_user">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>635</width>
+    <height>582</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border: none;
+border-radius: 5px;
+background-color: #2a2a2a;
+color: white;</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>636</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>636</width>
+     <height>581</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>636</width>
+     <height>581</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+border-radius: 5px;
+background-color: #2a2a2a;
+color: white;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>636</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	background-color: #404040;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="close">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>5</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font-size: 20px;
+	background-color: #f73643;
+	border-radius: 8px;
+}
+QPushButton::hover {
+	background-color: #d63a44;
+	color: black;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="hide">
+     <property name="geometry">
+      <rect>
+       <x>585</x>
+       <y>5</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	padding-bottom: 4px;
+	font-size: 20px;
+	background-color: #47fc65;
+	border-radius: 8px;
+}
+QPushButton::hover {
+	background-color: #49cc5f;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="title">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>5</y>
+       <width>76</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;
+color: white;</string>
+     </property>
+     <property name="text">
+      <string>Add user</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLineEdit" name="first_name">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Имя</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="last_name">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>85</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Фамилия</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="patronymic">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Отчество</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="age">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>175</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Возраст</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add_save_user">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>540</y>
+      <width>106</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	color: white;
+	background-color: #404040;
+	border-radius: 5px;
+}
+
+QPushButton::hover {
+	background-color: #55ada3;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="birth">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Дата рождения</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="country_city">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>265</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Страна, город</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="address">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Адрес</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="index_">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>355</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Индекс</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="number_phone">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>400</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Номер телефона</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="education">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>40</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Образование</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="place_work">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>85</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Место работы/учёбы</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="passport">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>445</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Паспорт</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="snils">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>490</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Снилс</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="car">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>535</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Машина</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="email">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>130</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Почта</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="vk">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>175</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>ВКонтакте</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="instagram">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>220</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Инстаграм</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="telegram">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>265</y>
+      <width>206</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Телеграм</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="relatives">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>40</y>
+      <width>201</width>
+      <height>126</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Родственники</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="other">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>400</y>
+      <width>206</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Остальное</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="other_social">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>310</y>
+      <width>206</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Другие соц. сети</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add_photo">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>355</y>
+      <width>201</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	color: white;
+	background-color: #404040;
+	border-radius: 5px;
+}
+
+QPushButton::hover {
+	background-color: #55ada3;
+}</string>
+    </property>
+    <property name="text">
+     <string>Добавить фото</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo_1">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>175</y>
+      <width>96</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #3b3b3b</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo_2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>175</y>
+      <width>96</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #3b3b3b</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo_3">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>265</y>
+      <width>96</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #3b3b3b</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="photo_4">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>265</y>
+      <width>96</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #3b3b3b</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add_doc">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>500</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	color: white;
+	background-color: #404040;
+	border-radius: 5px;
+}
+
+QPushButton::hover {
+	background-color: #55ada3;
+}</string>
+    </property>
+    <property name="text">
+     <string>Добавить документ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_photo_1">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>175</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_photo_2">
+    <property name="geometry">
+     <rect>
+      <x>605</x>
+      <y>175</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_photo_3">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>265</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_photo_4">
+    <property name="geometry">
+     <rect>
+      <x>605</x>
+      <y>265</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="list_table">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>540</y>
+      <width>86</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+	border: none;
+	border-radius: 5px;
+	color: white;
+	font-size: 14px;
+	padding-left: 5px;
+	background-color: #404040;
+}
+
+QComboBox::drop-down {
+	border:  none;;
+	border-radius: 2px;
+ }
+
+QComboBox::drop-down::hover {
+	background-color: #949494;
+ }
+</string>
+    </property>
+    <property name="editable">
+     <bool>false</bool>
+    </property>
+    <property name="duplicatesEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
