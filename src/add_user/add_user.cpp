@@ -16,6 +16,7 @@ Add_user::Add_user(const QString &mode, const QString &id, QWidget *parent) :
 		g_mode = "ADD";
 		ui->add_save_user->setText("Создать");
 		ui->first_name->setFocus();
+		ui->delete_user->setHidden(true);
 	}
 	else if (mode == "EDIT")
 	{
@@ -36,6 +37,8 @@ Add_user::Add_user(const QString &mode, const QString &id, QWidget *parent) :
 	}
 
 	QList<QString> list_tables = database.get_tables();
+	list_tables.removeOne(g_table);
+	ui->list_table->addItem(g_table);
 	ui->list_table->addItems(list_tables);
 }
 
@@ -140,14 +143,21 @@ void Add_user::on_add_save_user_clicked()
 
 		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives};
 		QString result_add;
+		QString old_table = g_table;
+		g_table = ui->list_table->currentText();
 
 		if (g_mode == "ADD")
-		{
-			g_table = ui->list_table->currentText();
 			result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
-		}
 		else if (g_mode == "EDIT")
-			result_add = database.update_user(data_user, g_id, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+		{
+			if (old_table != g_table)
+			{
+				result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+				database.delete_user(old_table, g_id);
+			}
+			else
+				result_add = database.update_user(data_user, g_id, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+		}
 
 		if (result_add == "Success")
 		{
@@ -164,6 +174,20 @@ void Add_user::on_add_save_user_clicked()
 	}
 }
 
+void Add_user::on_delete_user_clicked()
+{
+	QMessageBox::Button reply = QMessageBox::question(this, "Подтверждение удаления", "Вы уверены?", QMessageBox::Yes | QMessageBox::No);
+
+	if (reply == QMessageBox::Yes)
+	{
+		database.delete_user(g_table, g_id);
+		qDebug(logInfo) << "Запись удалена";
+		popUp->setPopupText("Запись удалена");
+		popUp->show();
+		close();
+	}
+}
+
 void Add_user::on_close_clicked()
 {
 	close();
@@ -172,33 +196,6 @@ void Add_user::on_close_clicked()
 void Add_user::on_hide_clicked()
 {
 	showMinimized();
-}
-
-void Add_user::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton) {
-        m_mousePoint = event->globalPos() - frameGeometry().topLeft();
-        event->accept();
-    }
-}
-
-void Add_user::mouseMoveEvent(QMouseEvent *event)
-{
-    if (event->buttons() & Qt::LeftButton )
-    {
-        move(event->globalPos() - m_mousePoint);
-        event->accept();
-	}
-}
-
-void Add_user::keyPressEvent(QKeyEvent *event)
-{
-    switch (event->key())
-    {
-        case Qt::Key_Escape:
-            close();
-            break;
-    }
 }
 
 void Add_user::on_add_doc_clicked()
@@ -384,4 +381,30 @@ void Add_user::on_delete_photo_4_clicked()
 	imageBytes4.clear();
 }
 
+void Add_user::mousePressEvent(QMouseEvent *event)
+{
+	if (event->button() == Qt::LeftButton) {
+		m_mousePoint = event->globalPos() - frameGeometry().topLeft();
+		event->accept();
+	}
+}
+
+void Add_user::mouseMoveEvent(QMouseEvent *event)
+{
+	if (event->buttons() & Qt::LeftButton )
+	{
+		move(event->globalPos() - m_mousePoint);
+		event->accept();
+	}
+}
+
+void Add_user::keyPressEvent(QKeyEvent *event)
+{
+	switch (event->key())
+	{
+		case Qt::Key_Escape:
+			close();
+			break;
+	}
+}
 

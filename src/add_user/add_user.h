@@ -7,6 +7,7 @@
 #include <QPoint>
 #include <QFileDialog>
 #include <QBuffer>
+#include <QMessageBox>
 #include "../database/database.h"
 #include "../logger/logger.h"
 #include "../popup/popup.h"
@@ -34,6 +35,7 @@ private slots:
     void on_delete_photo_2_clicked();
     void on_delete_photo_3_clicked();
     void on_delete_photo_4_clicked();
+	void on_delete_user_clicked();
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);

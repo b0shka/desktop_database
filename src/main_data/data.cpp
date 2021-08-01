@@ -16,3 +16,5 @@ QString default_style = "font-size: 13px;"
 int g_min_age = 0;
 int g_max_age = 0;
 QString g_table = "users";
+
+int g_status_db = 0;

@@ -780,7 +780,7 @@ QPushButton::hover {
      <rect>
       <x>425</x>
       <y>500</y>
-      <width>201</width>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
@@ -976,6 +976,38 @@ QComboBox::drop-down::hover {
     </property>
     <property name="frame">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_user">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>500</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 20px;
+	color: #2a2a2a;
+	background-color: #fc889e;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #fc7991;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
     </property>
    </widget>
   </widget>

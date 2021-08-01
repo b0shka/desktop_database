@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->search->setFocus();
 
-    QString result_start = database.first_start();
+	/*QString result_start = database.first_start("server.db");
     if (result_start == "ERROR")
     {
         qDebug(logError()) << "Старт программы";
@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 	{
 		database.get_data_filter();
 		get_users_from_db();
-	}
+	}*/
 }
 
 MainWindow::~MainWindow()
@@ -51,7 +51,8 @@ void MainWindow::get_users_from_db()
         }
     }
     else
-    {
+	{
+		ui->all_users->clear();
         qDebug(logError()) << "Нет записей в БД";
         popUp->setPopupText("Нет записей в БД");
         popUp->show();
@@ -81,7 +82,7 @@ void MainWindow::layout_title_app(QList<QString> data_user)
 
     item->setText(title_app);
 	item->setToolTip(data_user[0]);
-    ui->all_users->addItem(item);
+	ui->all_users->addItem(item);
 }
 
 void MainWindow::on_close_clicked()
@@ -96,33 +97,70 @@ void MainWindow::on_hide_clicked()
 
 void MainWindow::on_add_user_clicked()
 {
-	Add_user add_user("ADD");
-    add_user.setModal(true);
-    add_user.exec();
+	if (g_status_db == 1)
+	{
+		Add_user add_user("ADD");
+		add_user.setModal(true);
+		add_user.exec();
 
-    get_users_from_db();
+		get_users_from_db();
+	}
+	else
+	{
+		popUp->setPopupText("Сначала откройте или создайте БД");
+		popUp->show();
+	}
 }
 
 void MainWindow::on_update_clicked()
 {
-    get_users_from_db();
+	if (g_status_db == 1)
+	{
+		database.get_data_filter();
+		get_users_from_db();
+	}
+	else
+	{
+		popUp->setPopupText("Сначала откройте или создайте БД");
+		popUp->show();
+	}
 }
 
 void MainWindow::on_filter_clicked()
 {
-	Filter filter;
-	filter.setModal(true);
-	filter.exec();
+	if (g_status_db == 1)
+	{
+		Filter filter;
+		filter.setModal(true);
+		filter.exec();
 
+		get_users_from_db();
+	}
+	else
+	{
+		popUp->setPopupText("Сначала откройте или создайте БД");
+		popUp->show();
+	}
+}
+
+void MainWindow::on_new_database_clicked()
+{
+	QString filename = QFileDialog::getSaveFileName(0);
+	database.first_start(filename + ".db");
+
+	database.get_data_filter();
 	get_users_from_db();
 }
 
-void MainWindow::on_search_returnPressed()
+void MainWindow::on_open_db_clicked()
 {
-    QString search;
-    search = ui->search->text();
+	QString filename = QFileDialog::getOpenFileName(this,
+			tr("Choose database"), "", tr("Image Files (*.db *.sql *.sqlite)"));
 
-	ui->search->clear();
+	if (filename != nullptr)
+		database.first_start(filename);
+
+	get_users_from_db();
 }
 
 void MainWindow::on_all_users_itemDoubleClicked(QListWidgetItem *item)
@@ -133,7 +171,90 @@ void MainWindow::on_all_users_itemDoubleClicked(QListWidgetItem *item)
 	add_user.setModal(true);
 	add_user.exec();
 
+	database.get_data_filter();
 	get_users_from_db();
+}
+
+void MainWindow::on_search_returnPressed()
+{
+	if (g_status_db == 1)
+	{
+		QString search_text = ui->search->text();
+		ui->search->clear();
+		search(search_text);
+	}
+	else
+	{
+		popUp->setPopupText("Сначала откройте или создайте БД");
+		popUp->show();
+	}
+}
+
+void MainWindow::search(QString search_text)
+{
+	QList<QList<QString>> list_users = database.get_users();
+
+	if (list_users.size() != 0)
+	{
+		if (list_users.at(0).at(0) == "ERROR")
+		{
+			qDebug(logError()) << "Получение программ из БД";
+			popUp->setPopupText("Ошибка на стороне сервера");
+			popUp->show();
+		}
+		else
+		{
+			QList<QList<QString>> list_result = {};
+
+			for (auto i : list_users)
+			{
+				if (check_error(search_text.toLower(), i[0].toLower()) == 1 || check_error(search_text.toLower(), i[1].toLower()) == 1 || check_error(search_text.toLower(), i[2].toLower()) == 1)
+					list_result.push_back((i));
+
+				else if (check_word_in_word(search_text.toLower(), i[0].toLower()) == 1 || check_word_in_word(search_text.toLower(), i[1].toLower()) == 1 || check_word_in_word(search_text.toLower(), i[2].toLower()) == 1)
+					list_result.push_back((i));
+			}
+			add_users_to_listWidget(list_result);
+			list_users.clear();
+			list_result.clear();
+		}
+	}
+	else
+	{
+		qDebug(logError()) << "Нет записей в БД";
+		popUp->setPopupText("Нет записей в БД");
+		popUp->show();
+	}
+}
+
+int MainWindow::check_error(QString search, QString text_main)
+{
+	if (search.size() > 4)
+	{
+		int count = 0;
+		for (int j = 0; j < search.size(); j++)
+		{
+			if (text_main[j] != search[j])
+				count++;
+		}
+		if (count <= 1)
+			return 1;
+		else if (count <= 2 && (text_main.size() - search.size()) < 5)
+			return 1;
+		else
+			return 0;
+	}
+	return 0;
+}
+
+int MainWindow::check_word_in_word(QString search, QString text_main)
+{
+	bool result = text_main.contains(search);
+
+	if (result == true)
+		return 1;
+	else
+		return 0;
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -166,4 +287,3 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             break;
     }
 }
-

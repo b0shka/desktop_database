@@ -1,9 +1,9 @@
 #include "database.h"
 
-QString Database::first_start()
+QString Database::first_start(const QString &name_db)
 {
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("server.db");
+	db.setDatabaseName(name_db);
     sql = QSqlQuery(db);
     if (!db.open())
     {
@@ -11,10 +11,13 @@ QString Database::first_start()
         return "ERROR";
     }
     QString result_create_table = create_table();
-    if (result_create_table == "ERROR")
+	if (result_create_table == "ERROR")
         return "ERROR";
     else
+	{
+		g_status_db = 1;
         return "Success";
+	}
 }
 
 QString Database::create_table()
@@ -23,14 +26,17 @@ QString Database::create_table()
 	QString result_create;
 
 	if (count_table == 0)
-		result_create = add_new_table(name_table);
+	{
+		result_create = add_new_table(g_table);
+		return result_create;
+	}
 
-	return result_create;
+	return "Success";
 }
 
 QList<QList<QString> > Database::get_users()
 {
-	str_requests = "SELECT id, first_name, last_name, age FROM " + name_table + ";";
+	str_requests = "SELECT id, first_name, last_name, age FROM " + g_table + ";";
 
     if (!sql.exec(str_requests))
     {
@@ -57,7 +63,7 @@ QList<QList<QString> > Database::get_users()
 
 QString Database::add_user(const QList<QString> &data_user, const QByteArray &image_bytes1, const QByteArray &image_bytes2, const QByteArray &image_bytes3, const QByteArray &image_bytes4)
 {
-    int user_id = generate_id(name_table);
+	int user_id = generate_id(g_table);
 
     if (user_id == 0)
     {
@@ -65,7 +71,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
         return "ERROR";
     }
 
-	str_requests = "INSERT INTO " + name_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4);";
+	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4);";
     sql.prepare(str_requests);
     sql.bindValue(":id", user_id);
     sql.bindValue(":first_name", data_user.at(0));
@@ -106,7 +112,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
 
 QString Database::update_user(const QList<QString> &data_user, const QString &id, const QByteArray &image_bytes1, const QByteArray &image_bytes2, const QByteArray &image_bytes3, const QByteArray &image_bytes4)
 {
-	str_requests = "UPDATE " + name_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4) WHERE id = (:id);";
+	str_requests = "UPDATE " + g_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4) WHERE id = (:id);";
 	sql.prepare(str_requests);
 	sql.bindValue(":id", id);
 	sql.bindValue(":first_name", data_user.at(0));
@@ -174,7 +180,7 @@ int Database::generate_id(const QString &table_)
 
 QList<QString> Database::get_data_user(const QString &id)
 {
-	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives FROM " + name_table + " WHERE id = ('%1');";
+	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives FROM " + g_table + " WHERE id = ('%1');";
 
 	if (!sql.exec(str_requests.arg(id)))
 	{
@@ -217,7 +223,7 @@ QList<QString> Database::get_data_user(const QString &id)
 
 QList<QByteArray> Database::get_bytes_photo(const QString &id)
 {
-	str_requests = "SELECT user_photo_1, user_photo_2, user_photo_3, user_photo_4 FROM " + name_table + " WHERE id = ('%1');";
+	str_requests = "SELECT user_photo_1, user_photo_2, user_photo_3, user_photo_4 FROM " + g_table + " WHERE id = ('%1');";
 	if (!sql.exec(str_requests.arg(id)))
 	{
 		qDebug(logError) << "Не удается получить bytes фото " << db.lastError().text();
@@ -260,9 +266,7 @@ void Database::get_data_filter()
 	QList<QString> list_tables = get_tables();
 	g_table = list_tables.at(0);
 
-	name_table = g_table;
-
-	str_requests = "SELECT age FROM " + name_table + ";";
+	str_requests = "SELECT age FROM " + g_table + ";";
 
 	if (!sql.exec(str_requests))
 	{
@@ -344,7 +348,7 @@ QString Database::add_new_table(const QString &new_name_table)
 			return "ERROR";
 		}
 		db.commit();
-		qDebug(logInfo) << "Создана таблица " << name_table;
+		qDebug(logInfo) << "Создана таблица " << new_name_table;
 
 		return "Success";
 	}
@@ -392,4 +396,14 @@ int Database::get_count_table()
 	}
 
 	return count_table;
+}
+
+void Database::delete_user(const QString &table, const QString &id)
+{
+	str_requests = "DELETE FROM " + table + " WHERE id = ('%1');";
+
+	if (!sql.exec(str_requests.arg(id)))
+		qDebug() << "Не удается удалить запись из старой таблицы";
+
+	db.commit();
 }

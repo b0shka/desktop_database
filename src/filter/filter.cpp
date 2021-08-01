@@ -26,32 +26,45 @@ void Filter::add_info()
 
 	ui->list_table->clear();
 	QList<QString> list_tables = database.get_tables();
+	list_tables.removeOne(g_table);
+	ui->list_table->addItem(g_table);
 	ui->list_table->addItems(list_tables);
 }
 
 void Filter::on_new_table_clicked()
 {
 	QString name_table = ui->name_table->text();
-	QString result_create = database.add_new_table(name_table);
+	if (name_table.size() != 0)
+	{
+		ui->name_table->setStyleSheet(default_style);
 
-	if (result_create == "Success")
-	{
-		popUp->setPopupText("Таблица " + name_table + " создана");
-		popUp->show();
-	}
-	else if (result_create == "ERROR")
-	{
-		popUp->setPopupText("Таблица " + name_table + " не создана");
-		popUp->show();
-	}
-	else if (result_create == "EQUAL")
-	{
-		popUp->setPopupText("Таблица с таким именем уже существует");
-		popUp->show();
-	}
+		QString result_create = database.add_new_table(name_table);
 
-	ui->name_table->clear();
-	add_info();
+		if (result_create == "Success")
+		{
+			popUp->setPopupText("Таблица " + name_table + " создана");
+			popUp->show();
+		}
+		else if (result_create == "ERROR")
+		{
+			popUp->setPopupText("Таблица " + name_table + " не создана");
+			popUp->show();
+		}
+		else if (result_create == "EQUAL")
+		{
+			popUp->setPopupText("Таблица с таким именем уже существует");
+			popUp->show();
+		}
+
+		ui->name_table->clear();
+		add_info();
+	}
+	else
+	{
+		ui->name_table->setStyleSheet(lock_style);
+		popUp->setPopupText("Вы не запонили поле");
+		popUp->show();
+	}
 }
 
 void Filter::on_delete_table_clicked()
@@ -110,6 +123,8 @@ void Filter::on_save_clicked()
 		popUp->show();
 		close();
 	}
+
+	g_table = ui->list_table->currentText();
 }
 
 void Filter::on_drop_clicked()

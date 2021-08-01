@@ -15,7 +15,7 @@
 class Database
 {
 public:
-    QString first_start();
+	QString first_start(const QString &name_db);
     QString create_table();
     QList<QList<QString>> get_users();
 	QString add_user(const QList<QString> &data_user, const QByteArray &image_bytes1, const QByteArray &image_bytes2, const QByteArray &image_bytes3, const QByteArray &image_bytes4);
@@ -28,11 +28,11 @@ public:
 	QString add_new_table(const QString &new_name_table);
 	QString delete_table(const QString &delete_name_table);
 	int get_count_table();
+	void delete_user(const QString &table, const QString &id);
 
 private:
     QSqlDatabase db;
-    QSqlQuery sql;
-	QString name_table = g_table;
+	QSqlQuery sql;
     QString str_requests;
 };
 

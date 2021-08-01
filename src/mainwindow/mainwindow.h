@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include <QFileDialog>
 #include "../add_user/add_user.h"
 #include "../filter/filter.h"
 #include "../database/database.h"
@@ -28,7 +29,9 @@ private slots:
     void on_add_user_clicked();
     void on_update_clicked();
 	void on_filter_clicked();
-    void on_search_returnPressed();
+	void on_new_database_clicked();
+	void on_open_db_clicked();
+	void on_search_returnPressed();
 	void on_all_users_itemDoubleClicked(QListWidgetItem *item);
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent* event);
@@ -36,6 +39,10 @@ private slots:
 
     void add_users_to_listWidget(QList<QList<QString>> list_result);
     void layout_title_app(QList<QString> data_app);
+
+	void search(QString search_text);
+	int check_error(QString search, QString text_main);
+	int check_word_in_word(QString search, QString text_main);
 
 private:
     Ui::MainWindow *ui;
