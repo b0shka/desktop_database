@@ -256,10 +256,10 @@ padding-left: 5px;</string>
    <widget class="QPushButton" name="add_save_user">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>540</y>
-      <width>106</width>
-      <height>31</height>
+      <x>525</x>
+      <y>535</y>
+      <width>101</width>
+      <height>36</height>
      </rect>
     </property>
     <property name="font">
@@ -633,7 +633,7 @@ padding-left: 5px;</string>
       <x>210</x>
       <y>400</y>
       <width>206</width>
-      <height>171</height>
+      <height>126</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -779,8 +779,8 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>425</x>
-      <y>500</y>
-      <width>161</width>
+      <y>495</y>
+      <width>201</width>
       <height>31</height>
      </rect>
     </property>
@@ -943,9 +943,9 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>425</x>
-      <y>540</y>
-      <width>86</width>
-      <height>31</height>
+      <y>535</y>
+      <width>91</width>
+      <height>36</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -981,23 +981,23 @@ QComboBox::drop-down::hover {
    <widget class="QPushButton" name="delete_user">
     <property name="geometry">
      <rect>
-      <x>595</x>
-      <y>500</y>
-      <width>31</width>
-      <height>31</height>
+      <x>330</x>
+      <y>535</y>
+      <width>86</width>
+      <height>36</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>-1</pointsize>
-      <weight>75</weight>
+      <weight>50</weight>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
-	font-size: 20px;
+	font-size: 14px;
 	color: #2a2a2a;
 	background-color: #fc889e;
 	border-radius: 5px;
@@ -1007,7 +1007,392 @@ QPushButton::hover {
 }</string>
     </property>
     <property name="text">
+     <string>Удалить</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="doc_1">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>405</y>
+      <width>136</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="doc_2">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>435</y>
+      <width>136</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="doc_3">
+    <property name="geometry">
+     <rect>
+      <x>425</x>
+      <y>465</y>
+      <width>136</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_doc_1">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>400</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
      <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_doc_2">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>430</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="delete_doc_3">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>460</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+}
+QPushButton::hover {
+	background-color: #ffb0be;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>✘</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_doc_1">
+    <property name="geometry">
+     <rect>
+      <x>565</x>
+      <y>400</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_doc_2">
+    <property name="geometry">
+     <rect>
+      <x>565</x>
+      <y>430</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_doc_3">
+    <property name="geometry">
+     <rect>
+      <x>565</x>
+      <y>460</y>
+      <width>26</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 15px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_photo_1">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>175</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_photo_2">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>175</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_photo_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>265</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="download_photo_4">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>265</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 14px;
+	height: 28px;
+	color: white;
+	background-color: #3b3b3b;
+	border-radius: 5px;
+	padding-top: 5px;
+}
+QPushButton::hover {
+	background-color: #55ada3;
+	color: black;
+}</string>
+    </property>
+    <property name="text">
+     <string>🠗</string>
     </property>
    </widget>
   </widget>

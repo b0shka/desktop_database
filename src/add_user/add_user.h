@@ -7,6 +7,8 @@
 #include <QPoint>
 #include <QFileDialog>
 #include <QBuffer>
+#include <QByteArray>
+#include <QFile>
 #include <QMessageBox>
 #include "../database/database.h"
 #include "../logger/logger.h"
@@ -35,6 +37,16 @@ private slots:
     void on_delete_photo_2_clicked();
     void on_delete_photo_3_clicked();
     void on_delete_photo_4_clicked();
+	void on_download_photo_1_clicked();
+	void on_download_photo_2_clicked();
+	void on_download_photo_3_clicked();
+	void on_download_photo_4_clicked();
+	void on_delete_doc_1_clicked();
+	void on_delete_doc_2_clicked();
+	void on_delete_doc_3_clicked();
+	void on_download_doc_1_clicked();
+	void on_download_doc_2_clicked();
+	void on_download_doc_3_clicked();
 	void on_delete_user_clicked();
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent* event);
@@ -46,13 +58,13 @@ private:
     Ui::Add_user *ui;
 	QPoint m_mousePoint;
     Database database;
-    popup *popUp;
+	popup *popUp;
 	QPixmap one_Pixmap = QPixmap();
 	QPixmap two_Pixmap = QPixmap();
 	QPixmap three_Pixmap = QPixmap();
 	QPixmap four_Pixmap = QPixmap();
-	int count_photo;
-	QByteArray imageBytes1, imageBytes2, imageBytes3, imageBytes4;
+	int count_photo, count_doc;
+	QByteArray imageBytes1, imageBytes2, imageBytes3, imageBytes4, docBytes1, docBytes2 ,docBytes3;
 	QString g_mode, g_id;
 };
 

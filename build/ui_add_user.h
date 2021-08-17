@@ -63,6 +63,19 @@ public:
     QPushButton *delete_photo_4;
     QComboBox *list_table;
     QPushButton *delete_user;
+    QLabel *doc_1;
+    QLabel *doc_2;
+    QLabel *doc_3;
+    QPushButton *delete_doc_1;
+    QPushButton *delete_doc_2;
+    QPushButton *delete_doc_3;
+    QPushButton *download_doc_1;
+    QPushButton *download_doc_2;
+    QPushButton *download_doc_3;
+    QPushButton *download_photo_1;
+    QPushButton *download_photo_2;
+    QPushButton *download_photo_3;
+    QPushButton *download_photo_4;
 
     void setupUi(QDialog *Add_user)
     {
@@ -163,7 +176,7 @@ public:
 "padding-left: 5px;"));
         add_save_user = new QPushButton(frame);
         add_save_user->setObjectName(QString::fromUtf8("add_save_user"));
-        add_save_user->setGeometry(QRect(520, 540, 106, 31));
+        add_save_user->setGeometry(QRect(525, 535, 101, 36));
         QFont font1;
         font1.setBold(false);
         font1.setWeight(50);
@@ -300,7 +313,7 @@ public:
 "padding-left: 5px;"));
         other = new QTextEdit(frame);
         other->setObjectName(QString::fromUtf8("other"));
-        other->setGeometry(QRect(210, 400, 206, 171));
+        other->setGeometry(QRect(210, 400, 206, 126));
         other->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -350,7 +363,7 @@ public:
         photo_4->setAlignment(Qt::AlignCenter);
         add_doc = new QPushButton(frame);
         add_doc->setObjectName(QString::fromUtf8("add_doc"));
-        add_doc->setGeometry(QRect(425, 500, 161, 31));
+        add_doc->setGeometry(QRect(425, 495, 201, 31));
         add_doc->setFont(font1);
         add_doc->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -424,7 +437,7 @@ public:
 "}"));
         list_table = new QComboBox(frame);
         list_table->setObjectName(QString::fromUtf8("list_table"));
-        list_table->setGeometry(QRect(425, 540, 86, 31));
+        list_table->setGeometry(QRect(425, 535, 91, 36));
         list_table->setStyleSheet(QString::fromUtf8("QComboBox {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -448,20 +461,189 @@ public:
         list_table->setFrame(true);
         delete_user = new QPushButton(frame);
         delete_user->setObjectName(QString::fromUtf8("delete_user"));
-        delete_user->setGeometry(QRect(595, 500, 31, 31));
+        delete_user->setGeometry(QRect(330, 535, 86, 36));
         QFont font2;
-        font2.setBold(true);
+        font2.setBold(false);
         font2.setItalic(false);
-        font2.setWeight(75);
+        font2.setWeight(50);
         delete_user->setFont(font2);
         delete_user->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"	font-size: 20px;\n"
+"	font-size: 14px;\n"
 "	color: #2a2a2a;\n"
 "	background-color: #fc889e;\n"
 "	border-radius: 5px;\n"
 "}\n"
 "QPushButton::hover {\n"
 "	background-color: #fc7991;\n"
+"}"));
+        doc_1 = new QLabel(frame);
+        doc_1->setObjectName(QString::fromUtf8("doc_1"));
+        doc_1->setGeometry(QRect(425, 405, 136, 17));
+        doc_1->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
+        doc_2 = new QLabel(frame);
+        doc_2->setObjectName(QString::fromUtf8("doc_2"));
+        doc_2->setGeometry(QRect(425, 435, 136, 17));
+        doc_2->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
+        doc_3 = new QLabel(frame);
+        doc_3->setObjectName(QString::fromUtf8("doc_3"));
+        doc_3->setGeometry(QRect(425, 465, 136, 17));
+        doc_3->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
+        delete_doc_1 = new QPushButton(frame);
+        delete_doc_1->setObjectName(QString::fromUtf8("delete_doc_1"));
+        delete_doc_1->setGeometry(QRect(595, 400, 26, 26));
+        delete_doc_1->setFont(font);
+        delete_doc_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #ffb0be;\n"
+"	color: black;\n"
+"}"));
+        delete_doc_2 = new QPushButton(frame);
+        delete_doc_2->setObjectName(QString::fromUtf8("delete_doc_2"));
+        delete_doc_2->setGeometry(QRect(595, 430, 26, 26));
+        delete_doc_2->setFont(font);
+        delete_doc_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #ffb0be;\n"
+"	color: black;\n"
+"}"));
+        delete_doc_3 = new QPushButton(frame);
+        delete_doc_3->setObjectName(QString::fromUtf8("delete_doc_3"));
+        delete_doc_3->setGeometry(QRect(595, 460, 26, 26));
+        delete_doc_3->setFont(font);
+        delete_doc_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #ffb0be;\n"
+"	color: black;\n"
+"}"));
+        download_doc_1 = new QPushButton(frame);
+        download_doc_1->setObjectName(QString::fromUtf8("download_doc_1"));
+        download_doc_1->setGeometry(QRect(565, 400, 26, 26));
+        download_doc_1->setFont(font);
+        download_doc_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_doc_2 = new QPushButton(frame);
+        download_doc_2->setObjectName(QString::fromUtf8("download_doc_2"));
+        download_doc_2->setGeometry(QRect(565, 430, 26, 26));
+        download_doc_2->setFont(font);
+        download_doc_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_doc_3 = new QPushButton(frame);
+        download_doc_3->setObjectName(QString::fromUtf8("download_doc_3"));
+        download_doc_3->setGeometry(QRect(565, 460, 26, 26));
+        download_doc_3->setFont(font);
+        download_doc_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 15px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_photo_1 = new QPushButton(frame);
+        download_photo_1->setObjectName(QString::fromUtf8("download_photo_1"));
+        download_photo_1->setGeometry(QRect(480, 175, 21, 21));
+        download_photo_1->setFont(font);
+        download_photo_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 14px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_photo_2 = new QPushButton(frame);
+        download_photo_2->setObjectName(QString::fromUtf8("download_photo_2"));
+        download_photo_2->setGeometry(QRect(585, 175, 21, 21));
+        download_photo_2->setFont(font);
+        download_photo_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 14px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_photo_3 = new QPushButton(frame);
+        download_photo_3->setObjectName(QString::fromUtf8("download_photo_3"));
+        download_photo_3->setGeometry(QRect(480, 265, 21, 21));
+        download_photo_3->setFont(font);
+        download_photo_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 14px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
+"}"));
+        download_photo_4 = new QPushButton(frame);
+        download_photo_4->setObjectName(QString::fromUtf8("download_photo_4"));
+        download_photo_4->setGeometry(QRect(585, 265, 21, 21));
+        download_photo_4->setFont(font);
+        download_photo_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 14px;\n"
+"	height: 28px;\n"
+"	color: white;\n"
+"	background-color: #3b3b3b;\n"
+"	border-radius: 5px;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #55ada3;\n"
+"	color: black;\n"
 "}"));
 
         retranslateUi(Add_user);
@@ -525,7 +707,20 @@ public:
         delete_photo_2->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
         delete_photo_3->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
         delete_photo_4->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
-        delete_user->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
+        delete_user->setText(QApplication::translate("Add_user", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
+        doc_1->setText(QString());
+        doc_2->setText(QString());
+        doc_3->setText(QString());
+        delete_doc_1->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
+        delete_doc_2->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
+        delete_doc_3->setText(QApplication::translate("Add_user", "\342\234\230", nullptr));
+        download_doc_1->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_doc_2->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_doc_3->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_photo_1->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_photo_2->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_photo_3->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        download_photo_4->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
     } // retranslateUi
 
 };

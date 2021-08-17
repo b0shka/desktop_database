@@ -16,13 +16,29 @@ Add_user::Add_user(const QString &mode, const QString &id, QWidget *parent) :
 		g_mode = "ADD";
 		ui->add_save_user->setText("Создать");
 		ui->first_name->setFocus();
+
 		ui->delete_user->setHidden(true);
+		ui->delete_photo_1->setHidden(true);
+		ui->delete_photo_2->setHidden(true);
+		ui->delete_photo_3->setHidden(true);
+		ui->delete_photo_4->setHidden(true);
+		ui->download_photo_1->setHidden(true);
+		ui->download_photo_2->setHidden(true);
+		ui->download_photo_3->setHidden(true);
+		ui->download_photo_4->setHidden(true);
+		ui->delete_doc_1->setHidden(true);
+		ui->delete_doc_2->setHidden(true);
+		ui->delete_doc_3->setHidden(true);
+		ui->download_doc_1->setHidden(true);
+		ui->download_doc_2->setHidden(true);
+		ui->download_doc_3->setHidden(true);
 	}
 	else if (mode == "EDIT")
 	{
 		g_mode = "EDIT";
 		g_id = id;
 		ui->add_save_user->setText("Сохранить");
+
 		QList<QString> data_user = database.get_data_user(id);
 		QList<QByteArray> bytes_photo = database.get_bytes_photo(id);
 
@@ -70,6 +86,9 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 	ui->other_social->setText(data_user.at(18));
 	ui->other->setText(data_user.at(19));
 	ui->relatives->setText(data_user.at(20));
+	ui->doc_1->setText(data_user.at(21));
+	ui->doc_2->setText(data_user.at(22));
+	ui->doc_3->setText(data_user.at(23));
 
 	if (bytes_photo.size() == 0)
 	{
@@ -79,11 +98,6 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 	}
 	else
 	{
-		QPixmap one_Pixmap = QPixmap();
-		QPixmap two_Pixmap = QPixmap();
-		QPixmap three_Pixmap = QPixmap();
-		QPixmap four_Pixmap = QPixmap();
-
 		one_Pixmap.loadFromData(bytes_photo[0]);
 		two_Pixmap.loadFromData(bytes_photo[1]);
 		three_Pixmap.loadFromData(bytes_photo[2]);
@@ -95,19 +109,47 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 		ui->photo_4->setPixmap(three_Pixmap.scaled(166, 111));
 
 		if (one_Pixmap.isNull())
+		{
 			ui->delete_photo_1->setHidden(true);
+			ui->download_photo_1->setHidden(true);
+		}
 		if (two_Pixmap.isNull())
+		{
 			ui->delete_photo_2->setHidden(true);
+			ui->download_photo_2->setHidden(true);
+		}
 		if (three_Pixmap.isNull())
+		{
 			ui->delete_photo_3->setHidden(true);
+			ui->download_photo_3->setHidden(true);
+		}
 		if (four_Pixmap.isNull())
+		{
 			ui->delete_photo_4->setHidden(true);
+			ui->download_photo_4->setHidden(true);
+		}
+	}
+
+	if (ui->doc_1->text() == nullptr)
+	{
+		ui->delete_doc_1->setHidden(true);
+		ui->download_doc_1->setHidden(true);
+	}
+	if (ui->doc_2->text() == nullptr)
+	{
+		ui->delete_doc_2->setHidden(true);
+		ui->download_doc_2->setHidden(true);
+	}
+	if (ui->doc_3->text() == nullptr)
+	{
+		ui->delete_doc_3->setHidden(true);
+		ui->download_doc_3->setHidden(true);
 	}
 }
 
 void Add_user::on_add_save_user_clicked()
 {
-	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives;
+	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3;
 
     first_name = ui->first_name->text();
 	check_first_name = first_name.replace(" ", "");
@@ -140,23 +182,26 @@ void Add_user::on_add_save_user_clicked()
 		other_social = ui->other_social->toPlainText();
 		other = ui->other->toPlainText();
 		relatives = ui->relatives->toPlainText();
+		name_doc_1 = ui->doc_1->text();
+		name_doc_2 = ui->doc_2->text();
+		name_doc_3 = ui->doc_3->text();
 
-		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives};
+		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3};
 		QString result_add;
 		QString old_table = g_table;
 		g_table = ui->list_table->currentText();
 
 		if (g_mode == "ADD")
-			result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+			result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4, name_doc_1, docBytes1, name_doc_2, docBytes2, name_doc_3, docBytes3);
 		else if (g_mode == "EDIT")
 		{
 			if (old_table != g_table)
 			{
-				result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+				result_add = database.add_user(data_user, imageBytes1, imageBytes2, imageBytes3, imageBytes4, name_doc_1, docBytes1, name_doc_2, docBytes2, name_doc_3, docBytes3);
 				database.delete_user(old_table, g_id);
 			}
 			else
-				result_add = database.update_user(data_user, g_id, imageBytes1, imageBytes2, imageBytes3, imageBytes4);
+				result_add = database.update_user(data_user, g_id, imageBytes1, imageBytes2, imageBytes3, imageBytes4, name_doc_1, docBytes1, name_doc_2, docBytes2, name_doc_3, docBytes3);
 		}
 
 		if (result_add == "Success")
@@ -200,7 +245,61 @@ void Add_user::on_hide_clicked()
 
 void Add_user::on_add_doc_clicked()
 {
+	QString filename = QFileDialog::getOpenFileName(this,
+			tr("Choose document"), "", tr("Image Files (*.*)"));
+	QList<QString> list_path = filename.split("/");
+	QString doc_name;
+	for (QString i : list_path)
+		doc_name = i;
 
+	if (filename != nullptr)
+	{
+		if (ui->doc_1->text() == "")
+			count_doc = 0;
+		else if (ui->doc_2->text() == "")
+			count_doc = 1;
+		else if (ui->doc_3->text() == "")
+			count_doc = 2;
+		else
+			count_doc = 3;
+	}
+
+	if (count_doc == 0 || count_doc == 3)
+	{
+		ui->doc_1->setText(doc_name);
+		QFile file(filename);
+		if (!file.open(QIODevice::ReadOnly))
+			qDebug(logError()) << "Ошибка при открытии файла";
+		else
+			docBytes1 = file.readAll();
+		file.close();
+		ui->delete_doc_1->setHidden(false);
+		ui->download_doc_1->setHidden(false);
+	}
+	else if (count_doc == 1)
+	{
+		ui->doc_2->setText(doc_name);
+		QFile file(filename);
+		if (!file.open(QIODevice::ReadOnly))
+			qDebug(logError()) << "Ошибка при открытии файла";
+		else
+			docBytes2 = file.readAll();
+		file.close();
+		ui->delete_doc_2->setHidden(false);
+		ui->download_doc_2->setHidden(false);
+	}
+	else if (count_doc == 2)
+	{
+		ui->doc_3->setText(doc_name);
+		QFile file(filename);
+		if (!file.open(QIODevice::ReadOnly))
+			qDebug(logError()) << "Ошибка при открытии файла";
+		else
+			docBytes3 = file.readAll();
+		file.close();
+		ui->delete_doc_3->setHidden(false);
+		ui->download_doc_3->setHidden(false);
+	}
 }
 
 void Add_user::on_add_photo_clicked()
@@ -233,6 +332,7 @@ void Add_user::on_add_photo_clicked()
 			else if (filename.split(".")[1] == "jpg" || filename.split(".")[1] == "jpeg")
 				one_Pixmap.save(&buffer, "JPG");
 			ui->delete_photo_1->setHidden(false);
+			ui->download_photo_1->setHidden(false);
 		}
 		else if (count_photo == 1)
 		{
@@ -246,6 +346,7 @@ void Add_user::on_add_photo_clicked()
 			else if (filename.split(".")[1] == "jpg" || filename.split(".")[1] == "jpeg")
 				two_Pixmap.save(&buffer, "JPG");
 			ui->delete_photo_2->setHidden(false);
+			ui->download_photo_2->setHidden(false);
 		}
 		else if (count_photo == 2)
 		{
@@ -259,6 +360,7 @@ void Add_user::on_add_photo_clicked()
 			else if (filename.split(".")[1] == "jpg" || filename.split(".")[1] == "jpeg")
 				three_Pixmap.save(&buffer, "JPG");
 			ui->delete_photo_3->setHidden(false);
+			ui->download_photo_3->setHidden(false);
 		}
 		else if (count_photo == 3)
 		{
@@ -273,6 +375,7 @@ void Add_user::on_add_photo_clicked()
 			else if (filename.split(".")[1] == "jpg" || filename.split(".")[1] == "jpeg")
 				four_Pixmap.save(&buffer, "JPG");
 			ui->delete_photo_4->setHidden(false);
+			ui->download_photo_4->setHidden(false);
 		}
 	}
 }
@@ -283,6 +386,7 @@ void Add_user::on_delete_photo_1_clicked()
 	{
 		ui->photo_1->clear();
 		ui->delete_photo_1->setHidden(true);
+		ui->download_photo_1->setHidden(true);
 		one_Pixmap.loadFromData(nullptr);
 		imageBytes1.clear();
 	}
@@ -293,6 +397,7 @@ void Add_user::on_delete_photo_1_clicked()
 	{
 		ui->photo_2->clear();
 		ui->delete_photo_2->setHidden(true);
+		ui->download_photo_2->setHidden(true);
 		two_Pixmap.loadFromData(nullptr);
 		imageBytes2.clear();
 	}
@@ -305,6 +410,7 @@ void Add_user::on_delete_photo_1_clicked()
 		{
 			ui->photo_3->clear();
 			ui->delete_photo_3->setHidden(true);
+			ui->download_photo_3->setHidden(true);
 			three_Pixmap.loadFromData(nullptr);
 			imageBytes3.clear();
 		}
@@ -314,6 +420,7 @@ void Add_user::on_delete_photo_1_clicked()
 			three_Pixmap = four_Pixmap;
 			ui->photo_4->clear();
 			ui->delete_photo_4->setHidden(true);
+			ui->download_photo_4->setHidden(true);
 			four_Pixmap.loadFromData(nullptr);
 			imageBytes4.clear();
 		}
@@ -326,6 +433,7 @@ void Add_user::on_delete_photo_2_clicked()
 	{
 		ui->photo_2->clear();
 		ui->delete_photo_2->setHidden(true);
+		ui->download_photo_2->setHidden(true);
 		two_Pixmap.loadFromData(nullptr);
 		imageBytes2.clear();
 	}
@@ -338,6 +446,7 @@ void Add_user::on_delete_photo_2_clicked()
 		{
 			ui->photo_3->clear();
 			ui->delete_photo_3->setHidden(true);
+			ui->download_photo_3->setHidden(true);
 			three_Pixmap.loadFromData(nullptr);
 			imageBytes3.clear();
 		}
@@ -347,6 +456,7 @@ void Add_user::on_delete_photo_2_clicked()
 			three_Pixmap = four_Pixmap;
 			ui->photo_4->clear();
 			ui->delete_photo_4->setHidden(true);
+			ui->download_photo_4->setHidden(true);
 			four_Pixmap.loadFromData(nullptr);
 			imageBytes4.clear();
 		}
@@ -359,6 +469,7 @@ void Add_user::on_delete_photo_3_clicked()
 	{
 		ui->photo_3->clear();
 		ui->delete_photo_3->setHidden(true);
+		ui->download_photo_3->setHidden(true);
 		three_Pixmap.loadFromData(nullptr);
 		imageBytes3.clear();
 	}
@@ -368,6 +479,7 @@ void Add_user::on_delete_photo_3_clicked()
 		three_Pixmap = four_Pixmap;
 		ui->photo_4->clear();
 		ui->delete_photo_4->setHidden(true);
+		ui->download_photo_4->setHidden(true);
 		four_Pixmap.loadFromData(nullptr);
 		imageBytes4.clear();
 	}
@@ -377,8 +489,134 @@ void Add_user::on_delete_photo_4_clicked()
 {
 	ui->photo_4->clear();
 	ui->delete_photo_4->setHidden(true);
+	ui->download_photo_4->setHidden(true);
 	four_Pixmap.loadFromData(nullptr);
 	imageBytes4.clear();
+}
+
+void Add_user::on_download_photo_1_clicked()
+{
+
+}
+
+void Add_user::on_download_photo_2_clicked()
+{
+
+}
+
+void Add_user::on_download_photo_3_clicked()
+{
+
+}
+
+void Add_user::on_download_photo_4_clicked()
+{
+
+}
+
+void Add_user::on_delete_doc_1_clicked()
+{
+	if (ui->doc_2->text() == "")
+	{
+		ui->doc_1->clear();
+		docBytes1.clear();
+		ui->delete_doc_1->setHidden(true);
+		ui->download_doc_1->setHidden(true);
+	}
+	else
+		ui->doc_1->setText(ui->doc_2->text());
+
+	if (ui->doc_3->text() == "")
+	{
+		ui->doc_2->clear();
+		docBytes1 = docBytes2;
+		docBytes2.clear();
+		ui->delete_doc_2->setHidden(true);
+		ui->download_doc_2->setHidden(true);
+	}
+	else
+	{
+		ui->doc_2->setText(ui->doc_3->text());
+		ui->doc_3->clear();
+		docBytes2 = docBytes3;
+		docBytes3.clear();
+		ui->delete_doc_3->setHidden(true);
+		ui->download_doc_3->setHidden(true);
+	}
+}
+
+void Add_user::on_delete_doc_2_clicked()
+{
+	if (ui->doc_3->text() == "")
+	{
+		ui->doc_2->clear();
+		docBytes1 = docBytes2;
+		docBytes2.clear();
+		ui->delete_doc_2->setHidden(true);
+		ui->download_doc_2->setHidden(true);
+	}
+	else
+	{
+		ui->doc_2->setText(ui->doc_3->text());
+		ui->doc_3->clear();
+		docBytes2 = docBytes3;
+		docBytes3.clear();
+		ui->delete_doc_3->setHidden(true);
+		ui->download_doc_3->setHidden(true);
+	}
+}
+
+void Add_user::on_delete_doc_3_clicked()
+{
+	ui->doc_3->clear();
+	docBytes3.clear();
+	ui->delete_doc_3->setHidden(true);
+	ui->download_doc_3->setHidden(true);
+}
+
+void Add_user::on_download_doc_1_clicked()
+{
+	QString filename = ui->doc_1->text();
+	QList<QByteArray> bytes_doc = database.get_bytes_document(g_id);
+	docBytes1 = bytes_doc.at(0);
+	QFile file(filename);
+
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии файла";
+	else
+		file.write(docBytes1);
+
+	file.close();
+}
+
+void Add_user::on_download_doc_2_clicked()
+{
+	QString filename = ui->doc_2->text();
+	QList<QByteArray> bytes_doc = database.get_bytes_document(g_id);
+	docBytes2 = bytes_doc.at(1);
+	QFile file(filename);
+
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии файла";
+	else
+		file.write(docBytes2);
+
+	file.close();
+}
+
+void Add_user::on_download_doc_3_clicked()
+{
+	QString filename = ui->doc_3->text();
+	QList<QByteArray> bytes_doc = database.get_bytes_document(g_id);
+	docBytes3 = bytes_doc.at(2);
+	QFile file(filename);
+
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии файла";
+	else
+		file.write(docBytes3);
+
+	file.close();
 }
 
 void Add_user::mousePressEvent(QMouseEvent *event)
