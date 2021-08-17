@@ -128,6 +128,11 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 			ui->delete_photo_4->setHidden(true);
 			ui->download_photo_4->setHidden(true);
 		}
+
+		imageBytes1 = bytes_photo[0];
+		imageBytes2 = bytes_photo[1];
+		imageBytes3 = bytes_photo[2];
+		imageBytes4 = bytes_photo[3];
 	}
 
 	if (ui->doc_1->text() == nullptr)
@@ -496,22 +501,50 @@ void Add_user::on_delete_photo_4_clicked()
 
 void Add_user::on_download_photo_1_clicked()
 {
+	QFile file("photo_1.png");
 
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии фото";
+	else
+		file.write(imageBytes1);
+
+	file.close();
 }
 
 void Add_user::on_download_photo_2_clicked()
 {
+	QFile file("photo_2.png");
 
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии фото";
+	else
+		file.write(imageBytes2);
+
+	file.close();
 }
 
 void Add_user::on_download_photo_3_clicked()
 {
+	QFile file("photo_3.png");
 
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии фото";
+	else
+		file.write(imageBytes3);
+
+	file.close();
 }
 
 void Add_user::on_download_photo_4_clicked()
 {
+	QFile file("photo_4.png");
 
+	if (!file.open(QIODevice::WriteOnly))
+		qDebug(logError()) << "Ошибка при открытии фото";
+	else
+		file.write(imageBytes4);
+
+	file.close();
 }
 
 void Add_user::on_delete_doc_1_clicked()
