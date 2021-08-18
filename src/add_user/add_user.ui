@@ -139,9 +139,9 @@ QPushButton::hover {
     <widget class="QLabel" name="title">
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>290</x>
        <y>5</y>
-       <width>76</width>
+       <width>41</width>
        <height>16</height>
       </rect>
      </property>
@@ -157,7 +157,7 @@ QPushButton::hover {
 color: white;</string>
      </property>
      <property name="text">
-      <string>Add user</string>
+      <string>User</string>
      </property>
     </widget>
    </widget>
@@ -623,6 +623,9 @@ background-color: #404040;
 border-radius: 5px;
 padding-left: 5px;</string>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
     <property name="placeholderText">
      <string>Родственники</string>
     </property>
@@ -643,6 +646,9 @@ background-color: #404040;
 border-radius: 5px;
 padding-left: 5px;</string>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
     <property name="placeholderText">
      <string>Остальное</string>
     </property>
@@ -662,6 +668,9 @@ color: white;
 background-color: #404040;
 border-radius: 5px;
 padding-left: 5px;</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
     <property name="placeholderText">
      <string>Другие соц. сети</string>

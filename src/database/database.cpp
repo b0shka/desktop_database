@@ -74,11 +74,11 @@ QString Database::add_new_table(const QString &new_name_table)
 													"user_photo_2 BLOB,"
 													"user_photo_3 BLOB,"
 													"user_photo_4 BLOB,"
-"name_doc_1 TEXT,"
+													"name_doc_1 TEXT,"
 													"user_doc_1 BLOB,"
-"name_doc_2 TEXT,"
+													"name_doc_2 TEXT,"
 													"user_doc_2 BLOB,"
-"name_doc_3 TEXT,"
+													"name_doc_3 TEXT,"
 													"user_doc_3 BLOB"
 													");";
 
@@ -159,7 +159,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
     sql.bindValue(":telegram", data_user.at(17));
     sql.bindValue(":other_social", data_user.at(18));
     sql.bindValue(":other", data_user.at(19));
-    sql.bindValue(":relatives", data_user.at(20));
+	sql.bindValue(":relatives", data_user.at(20));
 	sql.bindValue(":user_photo_1", image_bytes1);
 	sql.bindValue(":user_photo_2", image_bytes2);
 	sql.bindValue(":user_photo_3", image_bytes3);
@@ -257,7 +257,7 @@ int Database::generate_id(const QString &table_)
 
 QList<QString> Database::get_data_user(const QString &id)
 {
-	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
+	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
 
 	if (!sql.exec(str_requests.arg(id)))
 	{

@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Version=1.0
+Type=Application
+Categories=System;Utility;
+Terminal=false
+Exec=/home/q/p/cpp/database/database_sql/bin/database_sql
+Icon=/home/q/p/cpp/database/database_sql/img/icon.png
+Name=Database
+Comment=Start database

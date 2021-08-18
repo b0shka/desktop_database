@@ -103,10 +103,13 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 		three_Pixmap.loadFromData(bytes_photo[2]);
 		four_Pixmap.loadFromData(bytes_photo[3]);
 
-		ui->photo_1->setPixmap(one_Pixmap.scaled(166, 111));
-		ui->photo_2->setPixmap(two_Pixmap.scaled(166, 111));
-		ui->photo_3->setPixmap(three_Pixmap.scaled(166, 111));
-		ui->photo_4->setPixmap(three_Pixmap.scaled(166, 111));
+		int width = ui->photo_1->width();
+		int height = ui->photo_1->height();
+
+		ui->photo_1->setPixmap(one_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
+		ui->photo_2->setPixmap(two_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
+		ui->photo_3->setPixmap(three_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
+		ui->photo_4->setPixmap(four_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 
 		if (one_Pixmap.isNull())
 		{
@@ -325,10 +328,13 @@ void Add_user::on_add_photo_clicked()
 		else
 			count_photo = 4;
 
+		int width = ui->photo_1->width();
+		int height = ui->photo_1->height();
+
 		if (count_photo == 0 || count_photo == 4)
 		{
 			one_Pixmap.load(filename);
-			ui->photo_1->setPixmap(one_Pixmap.scaled(166, 111));
+			ui->photo_1->setPixmap(one_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			QBuffer buffer(&imageBytes1);
 			buffer.open(QIODevice::WriteOnly);
 
@@ -342,7 +348,7 @@ void Add_user::on_add_photo_clicked()
 		else if (count_photo == 1)
 		{
 			two_Pixmap.load(filename);
-			ui->photo_2->setPixmap(two_Pixmap.scaled(166, 111));
+			ui->photo_2->setPixmap(two_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			QBuffer buffer(&imageBytes2);
 			buffer.open(QIODevice::WriteOnly);
 
@@ -356,7 +362,7 @@ void Add_user::on_add_photo_clicked()
 		else if (count_photo == 2)
 		{
 			three_Pixmap.load(filename);
-			ui->photo_3->setPixmap(three_Pixmap.scaled(166, 111));
+			ui->photo_3->setPixmap(three_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			QBuffer buffer(&imageBytes3);
 			buffer.open(QIODevice::WriteOnly);
 
@@ -370,7 +376,7 @@ void Add_user::on_add_photo_clicked()
 		else if (count_photo == 3)
 		{
 			four_Pixmap.load(filename);
-			ui->photo_4->setPixmap(four_Pixmap.scaled(166, 111));
+			ui->photo_4->setPixmap(four_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			count_photo = 4;
 			QBuffer buffer(&imageBytes4);
 			buffer.open(QIODevice::WriteOnly);
@@ -387,6 +393,9 @@ void Add_user::on_add_photo_clicked()
 
 void Add_user::on_delete_photo_1_clicked()
 {
+	int width = ui->photo_1->width();
+	int height = ui->photo_1->height();
+
 	if (two_Pixmap.isNull())
 	{
 		ui->photo_1->clear();
@@ -396,7 +405,7 @@ void Add_user::on_delete_photo_1_clicked()
 		imageBytes1.clear();
 	}
 	else
-		ui->photo_1->setPixmap(two_Pixmap.scaled(166, 111));
+		ui->photo_1->setPixmap(two_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 
 	if (three_Pixmap.isNull())
 	{
@@ -408,7 +417,7 @@ void Add_user::on_delete_photo_1_clicked()
 	}
 	else
 	{
-		ui->photo_2->setPixmap(three_Pixmap.scaled(166, 111));
+		ui->photo_2->setPixmap(three_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 		two_Pixmap = three_Pixmap;
 
 		if (four_Pixmap.isNull())
@@ -421,7 +430,7 @@ void Add_user::on_delete_photo_1_clicked()
 		}
 		else
 		{
-			ui->photo_3->setPixmap(four_Pixmap.scaled(166, 111));
+			ui->photo_3->setPixmap(four_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			three_Pixmap = four_Pixmap;
 			ui->photo_4->clear();
 			ui->delete_photo_4->setHidden(true);
@@ -434,6 +443,9 @@ void Add_user::on_delete_photo_1_clicked()
 
 void Add_user::on_delete_photo_2_clicked()
 {
+	int width = ui->photo_1->width();
+	int height = ui->photo_1->height();
+
 	if (three_Pixmap.isNull())
 	{
 		ui->photo_2->clear();
@@ -444,7 +456,7 @@ void Add_user::on_delete_photo_2_clicked()
 	}
 	else
 	{
-		ui->photo_2->setPixmap(three_Pixmap.scaled(166, 111));
+		ui->photo_2->setPixmap(three_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 		two_Pixmap = three_Pixmap;
 
 		if (four_Pixmap.isNull())
@@ -457,7 +469,7 @@ void Add_user::on_delete_photo_2_clicked()
 		}
 		else
 		{
-			ui->photo_3->setPixmap(four_Pixmap.scaled(166, 111));
+			ui->photo_3->setPixmap(four_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 			three_Pixmap = four_Pixmap;
 			ui->photo_4->clear();
 			ui->delete_photo_4->setHidden(true);
@@ -470,6 +482,9 @@ void Add_user::on_delete_photo_2_clicked()
 
 void Add_user::on_delete_photo_3_clicked()
 {
+	int width = ui->photo_1->width();
+	int height = ui->photo_1->height();
+
 	if (four_Pixmap.isNull())
 	{
 		ui->photo_3->clear();
@@ -480,7 +495,7 @@ void Add_user::on_delete_photo_3_clicked()
 	}
 	else
 	{
-		ui->photo_3->setPixmap(four_Pixmap.scaled(166, 111));
+		ui->photo_3->setPixmap(four_Pixmap.scaled(width, height, Qt::KeepAspectRatio));
 		three_Pixmap = four_Pixmap;
 		ui->photo_4->clear();
 		ui->delete_photo_4->setHidden(true);

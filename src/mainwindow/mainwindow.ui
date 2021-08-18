@@ -232,6 +232,15 @@ QListWidget::item:hover {
 	background-color: #949494;
 }</string>
      </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="autoScroll">
+      <bool>true</bool>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPushButton" name="add_user">
      <property name="geometry">
@@ -271,7 +280,7 @@ QPushButton::hover {
       <rect>
        <x>185</x>
        <y>40</y>
-       <width>41</width>
+       <width>36</width>
        <height>36</height>
       </rect>
      </property>
@@ -300,9 +309,9 @@ QPushButton::hover {
     <widget class="QPushButton" name="update">
      <property name="geometry">
       <rect>
-       <x>235</x>
+       <x>230</x>
        <y>40</y>
-       <width>41</width>
+       <width>36</width>
        <height>36</height>
       </rect>
      </property>
@@ -333,7 +342,7 @@ QPushButton::hover {
     <widget class="QPushButton" name="new_database">
      <property name="geometry">
       <rect>
-       <x>285</x>
+       <x>275</x>
        <y>40</y>
        <width>36</width>
        <height>36</height>
@@ -366,33 +375,68 @@ QPushButton::hover {
     <widget class="QPushButton" name="open_db">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>320</x>
        <y>40</y>
-       <width>76</width>
+       <width>36</width>
        <height>36</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>-1</pointsize>
-       <weight>50</weight>
+       <weight>75</weight>
        <italic>false</italic>
-       <bold>false</bold>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-	font-size: 14px;
+	font-size: 18px;
 	color: white;
 	background-color: #404040;
 	border-radius: 5px;
+	font-weight: bold;
+	padding-top: 5px;
 }
 QPushButton::hover {
 	background-color: #949494;
 }</string>
      </property>
      <property name="text">
-      <string>Открыть</string>
+      <string>🗀</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="settings">
+     <property name="geometry">
+      <rect>
+       <x>365</x>
+       <y>40</y>
+       <width>36</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font-size: 22px;
+	color: white;
+	background-color: #404040;
+	border-radius: 5px;
+	font-weight: bold;
+}
+QPushButton::hover {
+	background-color: #949494;
+}</string>
+     </property>
+     <property name="text">
+      <string>⚙</string>
      </property>
     </widget>
    </widget>

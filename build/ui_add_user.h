@@ -138,7 +138,7 @@ public:
 "}"));
         title = new QLabel(frame_5);
         title->setObjectName(QString::fromUtf8("title"));
-        title->setGeometry(QRect(280, 5, 76, 16));
+        title->setGeometry(QRect(290, 5, 41, 16));
         title->setFont(font);
         title->setStyleSheet(QString::fromUtf8("font-size: 14px;\n"
 "color: white;"));
@@ -311,6 +311,7 @@ public:
 "background-color: #404040;\n"
 "border-radius: 5px;\n"
 "padding-left: 5px;"));
+        relatives->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other = new QTextEdit(frame);
         other->setObjectName(QString::fromUtf8("other"));
         other->setGeometry(QRect(210, 400, 206, 126));
@@ -319,6 +320,7 @@ public:
 "background-color: #404040;\n"
 "border-radius: 5px;\n"
 "padding-left: 5px;"));
+        other->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other_social = new QTextEdit(frame);
         other_social->setObjectName(QString::fromUtf8("other_social"));
         other_social->setGeometry(QRect(210, 310, 206, 81));
@@ -327,6 +329,7 @@ public:
 "background-color: #404040;\n"
 "border-radius: 5px;\n"
 "padding-left: 5px;"));
+        other_social->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         add_photo = new QPushButton(frame);
         add_photo->setObjectName(QString::fromUtf8("add_photo"));
         add_photo->setGeometry(QRect(425, 355, 201, 36));
@@ -656,7 +659,7 @@ public:
         Add_user->setWindowTitle(QApplication::translate("Add_user", "Dialog", nullptr));
         close->setText(QString());
         hide->setText(QString());
-        title->setText(QApplication::translate("Add_user", "Add user", nullptr));
+        title->setText(QApplication::translate("Add_user", "User", nullptr));
         first_name->setText(QString());
         first_name->setPlaceholderText(QApplication::translate("Add_user", "\320\230\320\274\321\217", nullptr));
         last_name->setText(QString());

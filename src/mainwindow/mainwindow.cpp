@@ -12,19 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
 
     ui->search->setFocus();
-
-	/*QString result_start = database.first_start("server.db");
-    if (result_start == "ERROR")
-    {
-        qDebug(logError()) << "Старт программы";
-		popUp->setPopupText("Ошибка при старте прогрммы");
-        popUp->show();
-    }
-    else
-	{
-		database.get_data_filter();
-		get_users_from_db();
-	}*/
 }
 
 MainWindow::~MainWindow()
@@ -75,10 +62,12 @@ void MainWindow::layout_title_app(QList<QString> data_user)
     QListWidgetItem *item = new QListWidgetItem;
     QString title_app;
 
-	if (data_user[1].size() < 4)
-		title_app = data_user[1] + "\t\t" + data_user[2];
-    else
+	if (data_user[1].size() < 3)
+		title_app = data_user[1] + "\t\t\t" + data_user[2];
+	else if (data_user[1].size() > 8)
 		title_app = data_user[1] + "\t" + data_user[2];
+    else
+		title_app = data_user[1] + "\t\t" + data_user[2];
 
     item->setText(title_app);
 	item->setToolTip(data_user[0]);
@@ -158,9 +147,25 @@ void MainWindow::on_open_db_clicked()
 			tr("Choose database"), "", tr("Image Files (*.db *.sql *.sqlite)"));
 
 	if (filename != nullptr)
-		database.first_start(filename);
+	{
+		QString result_start = database.first_start(filename);
+		if (result_start == "ERROR")
+		{
+			qDebug(logError()) << "Старт программы";
+			popUp->setPopupText("Ошибка при старте прогрммы");
+			popUp->show();
+		}
+		else
+		{
+			database.get_data_filter();
+			get_users_from_db();
+		}
+	}
+}
 
-	get_users_from_db();
+void MainWindow::on_settings_clicked()
+{
+
 }
 
 void MainWindow::on_all_users_itemDoubleClicked(QListWidgetItem *item)
