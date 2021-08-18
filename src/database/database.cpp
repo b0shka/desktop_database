@@ -68,6 +68,7 @@ QString Database::add_new_table(const QString &new_name_table)
 													"instagram TEXT,"
 													"telegram TEXT,"
 													"other_social TEXT,"
+"hobby TEXT,"
 													"other TEXT,"
 													"relatives TEXT,"
 													"user_photo_1 BLOB,"
@@ -136,7 +137,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
         return "ERROR";
     }
 
-	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
+	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :hobby, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
     sql.prepare(str_requests);
     sql.bindValue(":id", user_id);
     sql.bindValue(":first_name", data_user.at(0));
@@ -158,8 +159,9 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
     sql.bindValue(":instagram", data_user.at(16));
     sql.bindValue(":telegram", data_user.at(17));
     sql.bindValue(":other_social", data_user.at(18));
-    sql.bindValue(":other", data_user.at(19));
-	sql.bindValue(":relatives", data_user.at(20));
+	sql.bindValue(":hobby", data_user.at(19));
+	sql.bindValue(":other", data_user.at(20));
+	sql.bindValue(":relatives", data_user.at(21));
 	sql.bindValue(":user_photo_1", image_bytes1);
 	sql.bindValue(":user_photo_2", image_bytes2);
 	sql.bindValue(":user_photo_3", image_bytes3);
@@ -183,7 +185,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
 
 QString Database::update_user(const QList<QString> &data_user, const QString &id, const QByteArray &image_bytes1, const QByteArray &image_bytes2, const QByteArray &image_bytes3, const QByteArray &image_bytes4, const QString &name_doc_1, const QByteArray &doc_bytes1, const QString &name_doc_2, const QByteArray &doc_bytes2, const QString &name_doc_3, const QByteArray &doc_bytes3)
 {
-	str_requests = "UPDATE " + g_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4), name_doc_1 = (:name_doc_1), user_doc_1 = (:user_doc_1), name_doc_2 = (:name_doc_2), user_doc_2 = (:user_doc_2), name_doc_3 = (:name_doc_3), user_doc_3 = (:user_doc_3) WHERE id = (:id);";
+	str_requests = "UPDATE " + g_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), hobby = (:hobby), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4), name_doc_1 = (:name_doc_1), user_doc_1 = (:user_doc_1), name_doc_2 = (:name_doc_2), user_doc_2 = (:user_doc_2), name_doc_3 = (:name_doc_3), user_doc_3 = (:user_doc_3) WHERE id = (:id);";
 	sql.prepare(str_requests);
 	sql.bindValue(":id", id);
 	sql.bindValue(":first_name", data_user.at(0));
@@ -205,8 +207,9 @@ QString Database::update_user(const QList<QString> &data_user, const QString &id
 	sql.bindValue(":instagram", data_user.at(16));
 	sql.bindValue(":telegram", data_user.at(17));
 	sql.bindValue(":other_social", data_user.at(18));
-	sql.bindValue(":other", data_user.at(19));
-	sql.bindValue(":relatives", data_user.at(20));
+	sql.bindValue(":hobby", data_user.at(19));
+	sql.bindValue(":other", data_user.at(20));
+	sql.bindValue(":relatives", data_user.at(21));
 	sql.bindValue(":user_photo_1", image_bytes1);
 	sql.bindValue(":user_photo_2", image_bytes2);
 	sql.bindValue(":user_photo_3", image_bytes3);
@@ -257,7 +260,7 @@ int Database::generate_id(const QString &table_)
 
 QList<QString> Database::get_data_user(const QString &id)
 {
-	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
+	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
 
 	if (!sql.exec(str_requests.arg(id)))
 	{
@@ -266,7 +269,7 @@ QList<QString> Database::get_data_user(const QString &id)
 	}
 
 	QSqlRecord get_data = sql.record();
-	QString first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3;
+	QString first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
 
 	while (sql.next())
 	{
@@ -289,6 +292,7 @@ QList<QString> Database::get_data_user(const QString &id)
 		instagram = sql.value(get_data.indexOf("instagram")).toString();
 		telegram = sql.value(get_data.indexOf("telegram")).toString();
 		other_social = sql.value(get_data.indexOf("other_social")).toString();
+		hobby = sql.value(get_data.indexOf("hobby")).toString();
 		other = sql.value(get_data.indexOf("other")).toString();
 		relatives = sql.value(get_data.indexOf("relatives")).toString();
 		name_doc_1 = sql.value(get_data.indexOf("name_doc_1")).toString();
@@ -296,7 +300,7 @@ QList<QString> Database::get_data_user(const QString &id)
 		name_doc_3 = sql.value(get_data.indexOf("name_doc_3")).toString();
 	}
 
-	QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3};
+	QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3};
 
 	return data_user;
 }

@@ -31,7 +31,6 @@ private slots:
 	void on_filter_clicked();
 	void on_new_database_clicked();
 	void on_open_db_clicked();
-	void on_settings_clicked();
 	void on_search_returnPressed();
 	void on_all_users_itemDoubleClicked(QListWidgetItem *item);
     void keyPressEvent(QKeyEvent *event);

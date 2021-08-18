@@ -84,11 +84,12 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 	ui->instagram->setText(data_user.at(16));
 	ui->telegram->setText(data_user.at(17));
 	ui->other_social->setText(data_user.at(18));
-	ui->other->setText(data_user.at(19));
-	ui->relatives->setText(data_user.at(20));
-	ui->doc_1->setText(data_user.at(21));
-	ui->doc_2->setText(data_user.at(22));
-	ui->doc_3->setText(data_user.at(23));
+	ui->hobby->setText(data_user.at(19));
+	ui->other->setText(data_user.at(20));
+	ui->relatives->setText(data_user.at(21));
+	ui->doc_1->setText(data_user.at(22));
+	ui->doc_2->setText(data_user.at(23));
+	ui->doc_3->setText(data_user.at(24));
 
 	if (bytes_photo.size() == 0)
 	{
@@ -157,7 +158,7 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 
 void Add_user::on_add_save_user_clicked()
 {
-	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3;
+	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
 
     first_name = ui->first_name->text();
 	check_first_name = first_name.replace(" ", "");
@@ -181,20 +182,21 @@ void Add_user::on_add_save_user_clicked()
 		passport = ui->passport->text();
 		snils = ui->snils->text();
 		car = ui->car->text();
-		education = ui->education->text();
-		place_work = ui->place_work->text();
+		education = ui->education->toPlainText();
+		place_work = ui->place_work->toPlainText();
 		email = ui->email->text();
 		vk = ui->vk->text();
 		instagram = ui->instagram->text();
 		telegram = ui->telegram->text();
 		other_social = ui->other_social->toPlainText();
+		hobby = ui->hobby->toPlainText();
 		other = ui->other->toPlainText();
 		relatives = ui->relatives->toPlainText();
 		name_doc_1 = ui->doc_1->text();
 		name_doc_2 = ui->doc_2->text();
 		name_doc_3 = ui->doc_3->text();
 
-		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, name_doc_1, name_doc_2, name_doc_3};
+		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3};
 		QString result_add;
 		QString old_table = g_table;
 		g_table = ui->list_table->currentText();
@@ -308,6 +310,9 @@ void Add_user::on_add_doc_clicked()
 		ui->delete_doc_3->setHidden(false);
 		ui->download_doc_3->setHidden(false);
 	}
+
+	popUp->setPopupText("Документ добавлен");
+	popUp->show();
 }
 
 void Add_user::on_add_photo_clicked()
@@ -388,6 +393,9 @@ void Add_user::on_add_photo_clicked()
 			ui->delete_photo_4->setHidden(false);
 			ui->download_photo_4->setHidden(false);
 		}
+
+		popUp->setPopupText("Фотография добавлена");
+		popUp->show();
 	}
 }
 
@@ -524,6 +532,9 @@ void Add_user::on_download_photo_1_clicked()
 		file.write(imageBytes1);
 
 	file.close();
+
+	popUp->setPopupText("Фотография скачалась");
+	popUp->show();
 }
 
 void Add_user::on_download_photo_2_clicked()
@@ -536,6 +547,9 @@ void Add_user::on_download_photo_2_clicked()
 		file.write(imageBytes2);
 
 	file.close();
+
+	popUp->setPopupText("Фотография скачалась");
+	popUp->show();
 }
 
 void Add_user::on_download_photo_3_clicked()
@@ -548,6 +562,9 @@ void Add_user::on_download_photo_3_clicked()
 		file.write(imageBytes3);
 
 	file.close();
+
+	popUp->setPopupText("Фотография скачалась");
+	popUp->show();
 }
 
 void Add_user::on_download_photo_4_clicked()
@@ -560,6 +577,9 @@ void Add_user::on_download_photo_4_clicked()
 		file.write(imageBytes4);
 
 	file.close();
+
+	popUp->setPopupText("Фотография скачалась");
+	popUp->show();
 }
 
 void Add_user::on_delete_doc_1_clicked()
@@ -635,6 +655,9 @@ void Add_user::on_download_doc_1_clicked()
 		file.write(docBytes1);
 
 	file.close();
+
+	popUp->setPopupText("Документ скачался");
+	popUp->show();
 }
 
 void Add_user::on_download_doc_2_clicked()
@@ -650,6 +673,9 @@ void Add_user::on_download_doc_2_clicked()
 		file.write(docBytes2);
 
 	file.close();
+
+	popUp->setPopupText("Документ скачался");
+	popUp->show();
 }
 
 void Add_user::on_download_doc_3_clicked()
@@ -665,6 +691,9 @@ void Add_user::on_download_doc_3_clicked()
 		file.write(docBytes3);
 
 	file.close();
+
+	popUp->setPopupText("Документ скачался");
+	popUp->show();
 }
 
 void Add_user::mousePressEvent(QMouseEvent *event)

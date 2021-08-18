@@ -37,7 +37,6 @@ public:
     QPushButton *update;
     QPushButton *new_database;
     QPushButton *open_db;
-    QPushButton *settings;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -109,7 +108,7 @@ public:
 "color: white;"));
         search = new QLineEdit(frame);
         search->setObjectName(QString::fromUtf8("search"));
-        search->setGeometry(QRect(10, 40, 166, 36));
+        search->setGeometry(QRect(10, 40, 211, 36));
         search->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "	font-size: 14px;\n"
 "	color: white;\n"
@@ -168,7 +167,7 @@ public:
 "}"));
         filter = new QPushButton(frame);
         filter->setObjectName(QString::fromUtf8("filter"));
-        filter->setGeometry(QRect(185, 40, 36, 36));
+        filter->setGeometry(QRect(230, 40, 36, 36));
         filter->setFont(font);
         filter->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 20px;\n"
@@ -181,7 +180,7 @@ public:
 "}"));
         update = new QPushButton(frame);
         update->setObjectName(QString::fromUtf8("update"));
-        update->setGeometry(QRect(230, 40, 36, 36));
+        update->setGeometry(QRect(275, 40, 36, 36));
         QFont font2;
         font2.setBold(true);
         font2.setItalic(false);
@@ -199,7 +198,7 @@ public:
 "}"));
         new_database = new QPushButton(frame);
         new_database->setObjectName(QString::fromUtf8("new_database"));
-        new_database->setGeometry(QRect(275, 40, 36, 36));
+        new_database->setGeometry(QRect(320, 40, 36, 36));
         new_database->setFont(font2);
         new_database->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 22px;\n"
@@ -213,7 +212,7 @@ public:
 "}"));
         open_db = new QPushButton(frame);
         open_db->setObjectName(QString::fromUtf8("open_db"));
-        open_db->setGeometry(QRect(320, 40, 36, 36));
+        open_db->setGeometry(QRect(365, 40, 36, 36));
         open_db->setFont(font2);
         open_db->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 18px;\n"
@@ -222,20 +221,6 @@ public:
 "	border-radius: 5px;\n"
 "	font-weight: bold;\n"
 "	padding-top: 5px;\n"
-"}\n"
-"QPushButton::hover {\n"
-"	background-color: #949494;\n"
-"}"));
-        settings = new QPushButton(frame);
-        settings->setObjectName(QString::fromUtf8("settings"));
-        settings->setGeometry(QRect(365, 40, 36, 36));
-        settings->setFont(font2);
-        settings->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"	font-size: 22px;\n"
-"	color: white;\n"
-"	background-color: #404040;\n"
-"	border-radius: 5px;\n"
-"	font-weight: bold;\n"
 "}\n"
 "QPushButton::hover {\n"
 "	background-color: #949494;\n"
@@ -260,7 +245,6 @@ public:
         update->setText(QApplication::translate("MainWindow", "\342\255\257", nullptr));
         new_database->setText(QApplication::translate("MainWindow", "+", nullptr));
         open_db->setText(QApplication::translate("MainWindow", "\360\237\227\200", nullptr));
-        settings->setText(QApplication::translate("MainWindow", "\342\232\231", nullptr));
     } // retranslateUi
 
 };

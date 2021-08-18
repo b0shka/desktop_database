@@ -163,11 +163,6 @@ void MainWindow::on_open_db_clicked()
 	}
 }
 
-void MainWindow::on_settings_clicked()
-{
-
-}
-
 void MainWindow::on_all_users_itemDoubleClicked(QListWidgetItem *item)
 {
 	QString id = item->toolTip();

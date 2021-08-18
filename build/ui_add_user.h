@@ -39,8 +39,6 @@ public:
     QLineEdit *address;
     QLineEdit *index_;
     QLineEdit *number_phone;
-    QLineEdit *education;
-    QLineEdit *place_work;
     QLineEdit *passport;
     QLineEdit *snils;
     QLineEdit *car;
@@ -76,21 +74,24 @@ public:
     QPushButton *download_photo_2;
     QPushButton *download_photo_3;
     QPushButton *download_photo_4;
+    QTextEdit *education;
+    QTextEdit *place_work;
+    QTextEdit *hobby;
 
     void setupUi(QDialog *Add_user)
     {
         if (Add_user->objectName().isEmpty())
             Add_user->setObjectName(QString::fromUtf8("Add_user"));
-        Add_user->resize(635, 582);
+        Add_user->resize(677, 670);
         Add_user->setStyleSheet(QString::fromUtf8("border: none;\n"
 "border-radius: 5px;\n"
 "background-color: #2a2a2a;\n"
 "color: white;"));
         frame = new QFrame(Add_user);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(0, 0, 636, 581));
+        frame->setGeometry(QRect(0, 0, 676, 671));
         frame->setMinimumSize(QSize(636, 581));
-        frame->setMaximumSize(QSize(636, 581));
+        frame->setMaximumSize(QSize(5555, 5555));
         frame->setStyleSheet(QString::fromUtf8("border: none;\n"
 "border-radius: 5px;\n"
 "background-color: #2a2a2a;\n"
@@ -99,7 +100,7 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         frame_5 = new QFrame(frame);
         frame_5->setObjectName(QString::fromUtf8("frame_5"));
-        frame_5->setGeometry(QRect(0, 0, 636, 26));
+        frame_5->setGeometry(QRect(0, 0, 676, 26));
         frame_5->setStyleSheet(QString::fromUtf8("QFrame{\n"
 "	border-bottom-left-radius: 0px;\n"
 "	border-bottom-right-radius: 0px;\n"
@@ -109,7 +110,7 @@ public:
         frame_5->setFrameShadow(QFrame::Raised);
         close = new QPushButton(frame_5);
         close->setObjectName(QString::fromUtf8("close"));
-        close->setGeometry(QRect(610, 5, 16, 16));
+        close->setGeometry(QRect(655, 5, 16, 16));
         QFont font;
         font.setBold(true);
         font.setWeight(75);
@@ -125,7 +126,7 @@ public:
 "}"));
         hide = new QPushButton(frame_5);
         hide->setObjectName(QString::fromUtf8("hide"));
-        hide->setGeometry(QRect(585, 5, 16, 16));
+        hide->setGeometry(QRect(630, 5, 16, 16));
         hide->setFont(font);
         hide->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	padding-bottom: 4px;\n"
@@ -144,7 +145,7 @@ public:
 "color: white;"));
         first_name = new QLineEdit(frame);
         first_name->setObjectName(QString::fromUtf8("first_name"));
-        first_name->setGeometry(QRect(10, 40, 191, 36));
+        first_name->setGeometry(QRect(10, 40, 211, 36));
         first_name->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -152,7 +153,7 @@ public:
 "padding-left: 5px;"));
         last_name = new QLineEdit(frame);
         last_name->setObjectName(QString::fromUtf8("last_name"));
-        last_name->setGeometry(QRect(10, 85, 191, 36));
+        last_name->setGeometry(QRect(10, 85, 211, 36));
         last_name->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -160,7 +161,7 @@ public:
 "padding-left: 5px;"));
         patronymic = new QLineEdit(frame);
         patronymic->setObjectName(QString::fromUtf8("patronymic"));
-        patronymic->setGeometry(QRect(10, 130, 191, 36));
+        patronymic->setGeometry(QRect(10, 130, 211, 36));
         patronymic->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -168,7 +169,7 @@ public:
 "padding-left: 5px;"));
         age = new QLineEdit(frame);
         age->setObjectName(QString::fromUtf8("age"));
-        age->setGeometry(QRect(10, 175, 191, 36));
+        age->setGeometry(QRect(10, 175, 211, 36));
         age->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -176,7 +177,7 @@ public:
 "padding-left: 5px;"));
         add_save_user = new QPushButton(frame);
         add_save_user->setObjectName(QString::fromUtf8("add_save_user"));
-        add_save_user->setGeometry(QRect(525, 535, 101, 36));
+        add_save_user->setGeometry(QRect(565, 630, 106, 31));
         QFont font1;
         font1.setBold(false);
         font1.setWeight(50);
@@ -193,7 +194,7 @@ public:
 "}"));
         birth = new QLineEdit(frame);
         birth->setObjectName(QString::fromUtf8("birth"));
-        birth->setGeometry(QRect(10, 220, 191, 36));
+        birth->setGeometry(QRect(10, 220, 211, 36));
         birth->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -201,7 +202,7 @@ public:
 "padding-left: 5px;"));
         country_city = new QLineEdit(frame);
         country_city->setObjectName(QString::fromUtf8("country_city"));
-        country_city->setGeometry(QRect(10, 265, 191, 36));
+        country_city->setGeometry(QRect(10, 265, 211, 36));
         country_city->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -209,7 +210,7 @@ public:
 "padding-left: 5px;"));
         address = new QLineEdit(frame);
         address->setObjectName(QString::fromUtf8("address"));
-        address->setGeometry(QRect(10, 310, 191, 36));
+        address->setGeometry(QRect(10, 310, 211, 36));
         address->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -217,7 +218,7 @@ public:
 "padding-left: 5px;"));
         index_ = new QLineEdit(frame);
         index_->setObjectName(QString::fromUtf8("index_"));
-        index_->setGeometry(QRect(10, 355, 191, 36));
+        index_->setGeometry(QRect(10, 355, 211, 36));
         index_->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -225,31 +226,15 @@ public:
 "padding-left: 5px;"));
         number_phone = new QLineEdit(frame);
         number_phone->setObjectName(QString::fromUtf8("number_phone"));
-        number_phone->setGeometry(QRect(10, 400, 191, 36));
+        number_phone->setGeometry(QRect(10, 400, 211, 36));
         number_phone->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
-"color: white;\n"
-"background-color: #404040;\n"
-"border-radius: 5px;\n"
-"padding-left: 5px;"));
-        education = new QLineEdit(frame);
-        education->setObjectName(QString::fromUtf8("education"));
-        education->setGeometry(QRect(210, 40, 206, 36));
-        education->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
-"color: white;\n"
-"background-color: #404040;\n"
-"border-radius: 5px;\n"
-"padding-left: 5px;"));
-        place_work = new QLineEdit(frame);
-        place_work->setObjectName(QString::fromUtf8("place_work"));
-        place_work->setGeometry(QRect(210, 85, 206, 36));
-        place_work->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
 "border-radius: 5px;\n"
 "padding-left: 5px;"));
         passport = new QLineEdit(frame);
         passport->setObjectName(QString::fromUtf8("passport"));
-        passport->setGeometry(QRect(10, 445, 191, 36));
+        passport->setGeometry(QRect(10, 445, 211, 36));
         passport->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -257,7 +242,7 @@ public:
 "padding-left: 5px;"));
         snils = new QLineEdit(frame);
         snils->setObjectName(QString::fromUtf8("snils"));
-        snils->setGeometry(QRect(10, 490, 191, 36));
+        snils->setGeometry(QRect(10, 490, 211, 36));
         snils->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -265,7 +250,7 @@ public:
 "padding-left: 5px;"));
         car = new QLineEdit(frame);
         car->setObjectName(QString::fromUtf8("car"));
-        car->setGeometry(QRect(10, 535, 191, 36));
+        car->setGeometry(QRect(10, 535, 211, 36));
         car->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -273,7 +258,7 @@ public:
 "padding-left: 5px;"));
         email = new QLineEdit(frame);
         email->setObjectName(QString::fromUtf8("email"));
-        email->setGeometry(QRect(210, 130, 206, 36));
+        email->setGeometry(QRect(230, 130, 231, 36));
         email->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -281,7 +266,7 @@ public:
 "padding-left: 5px;"));
         vk = new QLineEdit(frame);
         vk->setObjectName(QString::fromUtf8("vk"));
-        vk->setGeometry(QRect(210, 175, 206, 36));
+        vk->setGeometry(QRect(230, 175, 231, 36));
         vk->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -289,7 +274,7 @@ public:
 "padding-left: 5px;"));
         instagram = new QLineEdit(frame);
         instagram->setObjectName(QString::fromUtf8("instagram"));
-        instagram->setGeometry(QRect(210, 220, 206, 36));
+        instagram->setGeometry(QRect(230, 220, 231, 36));
         instagram->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -297,7 +282,7 @@ public:
 "padding-left: 5px;"));
         telegram = new QLineEdit(frame);
         telegram->setObjectName(QString::fromUtf8("telegram"));
-        telegram->setGeometry(QRect(210, 265, 206, 36));
+        telegram->setGeometry(QRect(230, 265, 231, 36));
         telegram->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -305,7 +290,7 @@ public:
 "padding-left: 5px;"));
         relatives = new QTextEdit(frame);
         relatives->setObjectName(QString::fromUtf8("relatives"));
-        relatives->setGeometry(QRect(425, 40, 201, 126));
+        relatives->setGeometry(QRect(470, 40, 201, 171));
         relatives->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -314,7 +299,7 @@ public:
         relatives->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other = new QTextEdit(frame);
         other->setObjectName(QString::fromUtf8("other"));
-        other->setGeometry(QRect(210, 400, 206, 126));
+        other->setGeometry(QRect(230, 490, 231, 171));
         other->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -323,7 +308,7 @@ public:
         other->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other_social = new QTextEdit(frame);
         other_social->setObjectName(QString::fromUtf8("other_social"));
-        other_social->setGeometry(QRect(210, 310, 206, 81));
+        other_social->setGeometry(QRect(230, 310, 231, 81));
         other_social->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -332,7 +317,7 @@ public:
         other_social->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         add_photo = new QPushButton(frame);
         add_photo->setObjectName(QString::fromUtf8("add_photo"));
-        add_photo->setGeometry(QRect(425, 355, 201, 36));
+        add_photo->setGeometry(QRect(470, 400, 201, 36));
         add_photo->setFont(font1);
         add_photo->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -346,27 +331,27 @@ public:
 "}"));
         photo_1 = new QLabel(frame);
         photo_1->setObjectName(QString::fromUtf8("photo_1"));
-        photo_1->setGeometry(QRect(425, 175, 96, 81));
+        photo_1->setGeometry(QRect(470, 220, 96, 81));
         photo_1->setStyleSheet(QString::fromUtf8("background-color: #3b3b3b"));
         photo_1->setAlignment(Qt::AlignCenter);
         photo_2 = new QLabel(frame);
         photo_2->setObjectName(QString::fromUtf8("photo_2"));
-        photo_2->setGeometry(QRect(530, 175, 96, 81));
+        photo_2->setGeometry(QRect(575, 220, 96, 81));
         photo_2->setStyleSheet(QString::fromUtf8("background-color: #3b3b3b"));
         photo_2->setAlignment(Qt::AlignCenter);
         photo_3 = new QLabel(frame);
         photo_3->setObjectName(QString::fromUtf8("photo_3"));
-        photo_3->setGeometry(QRect(425, 265, 96, 81));
+        photo_3->setGeometry(QRect(470, 310, 96, 81));
         photo_3->setStyleSheet(QString::fromUtf8("background-color: #3b3b3b"));
         photo_3->setAlignment(Qt::AlignCenter);
         photo_4 = new QLabel(frame);
         photo_4->setObjectName(QString::fromUtf8("photo_4"));
-        photo_4->setGeometry(QRect(530, 265, 96, 81));
+        photo_4->setGeometry(QRect(575, 310, 96, 81));
         photo_4->setStyleSheet(QString::fromUtf8("background-color: #3b3b3b"));
         photo_4->setAlignment(Qt::AlignCenter);
         add_doc = new QPushButton(frame);
         add_doc->setObjectName(QString::fromUtf8("add_doc"));
-        add_doc->setGeometry(QRect(425, 495, 201, 31));
+        add_doc->setGeometry(QRect(470, 445, 201, 36));
         add_doc->setFont(font1);
         add_doc->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -380,7 +365,7 @@ public:
 "}"));
         delete_photo_1 = new QPushButton(frame);
         delete_photo_1->setObjectName(QString::fromUtf8("delete_photo_1"));
-        delete_photo_1->setGeometry(QRect(500, 175, 21, 21));
+        delete_photo_1->setGeometry(QRect(545, 220, 21, 21));
         delete_photo_1->setFont(font);
         delete_photo_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -395,7 +380,7 @@ public:
 "}"));
         delete_photo_2 = new QPushButton(frame);
         delete_photo_2->setObjectName(QString::fromUtf8("delete_photo_2"));
-        delete_photo_2->setGeometry(QRect(605, 175, 21, 21));
+        delete_photo_2->setGeometry(QRect(650, 220, 21, 21));
         delete_photo_2->setFont(font);
         delete_photo_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -410,7 +395,7 @@ public:
 "}"));
         delete_photo_3 = new QPushButton(frame);
         delete_photo_3->setObjectName(QString::fromUtf8("delete_photo_3"));
-        delete_photo_3->setGeometry(QRect(500, 265, 21, 21));
+        delete_photo_3->setGeometry(QRect(545, 310, 21, 21));
         delete_photo_3->setFont(font);
         delete_photo_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -425,7 +410,7 @@ public:
 "}"));
         delete_photo_4 = new QPushButton(frame);
         delete_photo_4->setObjectName(QString::fromUtf8("delete_photo_4"));
-        delete_photo_4->setGeometry(QRect(605, 265, 21, 21));
+        delete_photo_4->setGeometry(QRect(650, 310, 21, 21));
         delete_photo_4->setFont(font);
         delete_photo_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -440,7 +425,7 @@ public:
 "}"));
         list_table = new QComboBox(frame);
         list_table->setObjectName(QString::fromUtf8("list_table"));
-        list_table->setGeometry(QRect(425, 535, 91, 36));
+        list_table->setGeometry(QRect(565, 590, 106, 31));
         list_table->setStyleSheet(QString::fromUtf8("QComboBox {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -464,7 +449,7 @@ public:
         list_table->setFrame(true);
         delete_user = new QPushButton(frame);
         delete_user->setObjectName(QString::fromUtf8("delete_user"));
-        delete_user->setGeometry(QRect(330, 535, 86, 36));
+        delete_user->setGeometry(QRect(470, 630, 86, 31));
         QFont font2;
         font2.setBold(false);
         font2.setItalic(false);
@@ -481,19 +466,19 @@ public:
 "}"));
         doc_1 = new QLabel(frame);
         doc_1->setObjectName(QString::fromUtf8("doc_1"));
-        doc_1->setGeometry(QRect(425, 405, 136, 17));
+        doc_1->setGeometry(QRect(470, 495, 136, 17));
         doc_1->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
         doc_2 = new QLabel(frame);
         doc_2->setObjectName(QString::fromUtf8("doc_2"));
-        doc_2->setGeometry(QRect(425, 435, 136, 17));
+        doc_2->setGeometry(QRect(470, 525, 136, 17));
         doc_2->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
         doc_3 = new QLabel(frame);
         doc_3->setObjectName(QString::fromUtf8("doc_3"));
-        doc_3->setGeometry(QRect(425, 465, 136, 17));
+        doc_3->setGeometry(QRect(470, 555, 136, 17));
         doc_3->setStyleSheet(QString::fromUtf8("font-size: 14px;"));
         delete_doc_1 = new QPushButton(frame);
         delete_doc_1->setObjectName(QString::fromUtf8("delete_doc_1"));
-        delete_doc_1->setGeometry(QRect(595, 400, 26, 26));
+        delete_doc_1->setGeometry(QRect(640, 490, 26, 26));
         delete_doc_1->setFont(font);
         delete_doc_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -508,7 +493,7 @@ public:
 "}"));
         delete_doc_2 = new QPushButton(frame);
         delete_doc_2->setObjectName(QString::fromUtf8("delete_doc_2"));
-        delete_doc_2->setGeometry(QRect(595, 430, 26, 26));
+        delete_doc_2->setGeometry(QRect(640, 520, 26, 26));
         delete_doc_2->setFont(font);
         delete_doc_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -523,7 +508,7 @@ public:
 "}"));
         delete_doc_3 = new QPushButton(frame);
         delete_doc_3->setObjectName(QString::fromUtf8("delete_doc_3"));
-        delete_doc_3->setGeometry(QRect(595, 460, 26, 26));
+        delete_doc_3->setGeometry(QRect(640, 550, 26, 26));
         delete_doc_3->setFont(font);
         delete_doc_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -538,7 +523,7 @@ public:
 "}"));
         download_doc_1 = new QPushButton(frame);
         download_doc_1->setObjectName(QString::fromUtf8("download_doc_1"));
-        download_doc_1->setGeometry(QRect(565, 400, 26, 26));
+        download_doc_1->setGeometry(QRect(610, 490, 26, 26));
         download_doc_1->setFont(font);
         download_doc_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -554,7 +539,7 @@ public:
 "}"));
         download_doc_2 = new QPushButton(frame);
         download_doc_2->setObjectName(QString::fromUtf8("download_doc_2"));
-        download_doc_2->setGeometry(QRect(565, 430, 26, 26));
+        download_doc_2->setGeometry(QRect(610, 520, 26, 26));
         download_doc_2->setFont(font);
         download_doc_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -570,7 +555,7 @@ public:
 "}"));
         download_doc_3 = new QPushButton(frame);
         download_doc_3->setObjectName(QString::fromUtf8("download_doc_3"));
-        download_doc_3->setGeometry(QRect(565, 460, 26, 26));
+        download_doc_3->setGeometry(QRect(610, 550, 26, 26));
         download_doc_3->setFont(font);
         download_doc_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 15px;\n"
@@ -586,7 +571,7 @@ public:
 "}"));
         download_photo_1 = new QPushButton(frame);
         download_photo_1->setObjectName(QString::fromUtf8("download_photo_1"));
-        download_photo_1->setGeometry(QRect(480, 175, 21, 21));
+        download_photo_1->setGeometry(QRect(525, 220, 21, 21));
         download_photo_1->setFont(font);
         download_photo_1->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -602,7 +587,7 @@ public:
 "}"));
         download_photo_2 = new QPushButton(frame);
         download_photo_2->setObjectName(QString::fromUtf8("download_photo_2"));
-        download_photo_2->setGeometry(QRect(585, 175, 21, 21));
+        download_photo_2->setGeometry(QRect(630, 220, 21, 21));
         download_photo_2->setFont(font);
         download_photo_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -618,7 +603,7 @@ public:
 "}"));
         download_photo_3 = new QPushButton(frame);
         download_photo_3->setObjectName(QString::fromUtf8("download_photo_3"));
-        download_photo_3->setGeometry(QRect(480, 265, 21, 21));
+        download_photo_3->setGeometry(QRect(525, 310, 21, 21));
         download_photo_3->setFont(font);
         download_photo_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -634,7 +619,7 @@ public:
 "}"));
         download_photo_4 = new QPushButton(frame);
         download_photo_4->setObjectName(QString::fromUtf8("download_photo_4"));
-        download_photo_4->setGeometry(QRect(585, 265, 21, 21));
+        download_photo_4->setGeometry(QRect(630, 310, 21, 21));
         download_photo_4->setFont(font);
         download_photo_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 14px;\n"
@@ -648,6 +633,33 @@ public:
 "	background-color: #55ada3;\n"
 "	color: black;\n"
 "}"));
+        education = new QTextEdit(frame);
+        education->setObjectName(QString::fromUtf8("education"));
+        education->setGeometry(QRect(10, 580, 211, 81));
+        education->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
+"color: white;\n"
+"background-color: #404040;\n"
+"border-radius: 5px;\n"
+"padding-left: 5px;"));
+        education->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        place_work = new QTextEdit(frame);
+        place_work->setObjectName(QString::fromUtf8("place_work"));
+        place_work->setGeometry(QRect(230, 40, 231, 81));
+        place_work->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
+"color: white;\n"
+"background-color: #404040;\n"
+"border-radius: 5px;\n"
+"padding-left: 5px;"));
+        place_work->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        hobby = new QTextEdit(frame);
+        hobby->setObjectName(QString::fromUtf8("hobby"));
+        hobby->setGeometry(QRect(230, 400, 231, 81));
+        hobby->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
+"color: white;\n"
+"background-color: #404040;\n"
+"border-radius: 5px;\n"
+"padding-left: 5px;"));
+        hobby->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
         retranslateUi(Add_user);
 
@@ -679,10 +691,6 @@ public:
         index_->setPlaceholderText(QApplication::translate("Add_user", "\320\230\320\275\320\264\320\265\320\272\321\201", nullptr));
         number_phone->setText(QString());
         number_phone->setPlaceholderText(QApplication::translate("Add_user", "\320\235\320\276\320\274\320\265\321\200 \321\202\320\265\320\273\320\265\321\204\320\276\320\275\320\260", nullptr));
-        education->setText(QString());
-        education->setPlaceholderText(QApplication::translate("Add_user", "\320\236\320\261\321\200\320\260\320\267\320\276\320\262\320\260\320\275\320\270\320\265", nullptr));
-        place_work->setText(QString());
-        place_work->setPlaceholderText(QApplication::translate("Add_user", "\320\234\320\265\321\201\321\202\320\276 \321\200\320\260\320\261\320\276\321\202\321\213/\321\203\321\207\321\221\320\261\321\213", nullptr));
         passport->setText(QString());
         passport->setPlaceholderText(QApplication::translate("Add_user", "\320\237\320\260\321\201\320\277\320\276\321\200\321\202", nullptr));
         snils->setText(QString());
@@ -724,6 +732,9 @@ public:
         download_photo_2->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
         download_photo_3->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
         download_photo_4->setText(QApplication::translate("Add_user", "\360\237\240\227", nullptr));
+        education->setPlaceholderText(QApplication::translate("Add_user", "\320\236\320\261\321\200\320\260\320\267\320\276\320\262\320\260\320\275\320\270\320\265", nullptr));
+        place_work->setPlaceholderText(QApplication::translate("Add_user", "\320\234\320\265\321\201\321\202\320\276 \321\200\320\260\320\261\320\276\321\202\321\213/\321\203\321\207\321\221\320\261\321\213", nullptr));
+        hobby->setPlaceholderText(QApplication::translate("Add_user", "\320\245\320\276\320\261\320\261\320\270", nullptr));
     } // retranslateUi
 
 };
