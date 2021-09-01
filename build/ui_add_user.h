@@ -77,6 +77,7 @@ public:
     QTextEdit *education;
     QTextEdit *place_work;
     QTextEdit *hobby;
+    QPushButton *convert;
 
     void setupUi(QDialog *Add_user)
     {
@@ -660,6 +661,25 @@ public:
 "border-radius: 5px;\n"
 "padding-left: 5px;"));
         hobby->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        convert = new QPushButton(frame);
+        convert->setObjectName(QString::fromUtf8("convert"));
+        convert->setGeometry(QRect(525, 590, 31, 31));
+        QFont font3;
+        font3.setBold(true);
+        font3.setItalic(false);
+        font3.setWeight(75);
+        convert->setFont(font3);
+        convert->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 18px;\n"
+"	color: white;\n"
+"	background-color: #404040;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"	padding-top: 5px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #949494;\n"
+"}"));
 
         retranslateUi(Add_user);
 
@@ -735,6 +755,7 @@ public:
         education->setPlaceholderText(QApplication::translate("Add_user", "\320\236\320\261\321\200\320\260\320\267\320\276\320\262\320\260\320\275\320\270\320\265", nullptr));
         place_work->setPlaceholderText(QApplication::translate("Add_user", "\320\234\320\265\321\201\321\202\320\276 \321\200\320\260\320\261\320\276\321\202\321\213/\321\203\321\207\321\221\320\261\321\213", nullptr));
         hobby->setPlaceholderText(QApplication::translate("Add_user", "\320\245\320\276\320\261\320\261\320\270", nullptr));
+        convert->setText(QApplication::translate("Add_user", "\360\237\227\230", nullptr));
     } // retranslateUi
 
 };

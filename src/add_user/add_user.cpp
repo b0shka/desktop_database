@@ -18,6 +18,7 @@ Add_user::Add_user(const QString &mode, const QString &id, QWidget *parent) :
 		ui->first_name->setFocus();
 
 		ui->delete_user->setHidden(true);
+		ui->convert->setHidden(true);
 		ui->delete_photo_1->setHidden(true);
 		ui->delete_photo_2->setHidden(true);
 		ui->delete_photo_3->setHidden(true);
@@ -162,6 +163,7 @@ void Add_user::on_add_save_user_clicked()
 
     first_name = ui->first_name->text();
 	check_first_name = first_name.replace(" ", "");
+
 	if (check_first_name.size() == 0)
 	{
 		ui->first_name->setFocus();
@@ -196,7 +198,7 @@ void Add_user::on_add_save_user_clicked()
 		name_doc_2 = ui->doc_2->text();
 		name_doc_3 = ui->doc_3->text();
 
-		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3};
+		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives};
 		QString result_add;
 		QString old_table = g_table;
 		g_table = ui->list_table->currentText();
@@ -240,6 +242,72 @@ void Add_user::on_delete_user_clicked()
 		popUp->setPopupText("Запись удалена");
 		popUp->show();
 		close();
+	}
+}
+
+void Add_user::on_convert_clicked()
+{
+	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_file;
+
+	first_name = ui->first_name->text();
+	check_first_name = first_name.replace(" ", "");
+
+	if (check_first_name.size() == 0)
+	{
+		ui->first_name->setFocus();
+		ui->first_name->setStyleSheet(lock_style);
+	}
+	else
+	{
+		ui->first_name->setStyleSheet(default_style);
+
+		last_name = ui->last_name->text();
+		patronymic = ui->patronymic->text();
+		age = ui->age->text();
+		birth = ui->birth->text();
+		country_city = ui->country_city->text();
+		address = ui->address->text();
+		index_ = ui->index_->text();
+		number_phone = ui->number_phone->text();
+		passport = ui->passport->text();
+		snils = ui->snils->text();
+		car = ui->car->text();
+		education = ui->education->toPlainText();
+		place_work = ui->place_work->toPlainText();
+		email = ui->email->text();
+		vk = ui->vk->text();
+		instagram = ui->instagram->text();
+		telegram = ui->telegram->text();
+		other_social = ui->other_social->toPlainText();
+		hobby = ui->hobby->toPlainText();
+		other = ui->other->toPlainText();
+		relatives = ui->relatives->toPlainText();
+		name_file = first_name + " " + last_name + ".txt";
+
+		ofstream file_txt(name_file.toUtf8().constData());
+
+		file_txt << first_name.toUtf8().constData();
+		file_txt << " " << last_name.toUtf8().constData();
+		file_txt << " " << patronymic.toUtf8().constData() << ":\n";
+		file_txt << "Дата рождения: " << birth.toUtf8().constData() << " (" << age.toUtf8().constData() << ")\n";
+		file_txt << country_city.toUtf8().constData() << "\n";
+		file_txt << "Адрес: " << address.toUtf8().constData() << " " << index_.toUtf8().constData() << "\n";
+		file_txt << "Номер телефона: " << number_phone.toUtf8().constData() << "\n";
+		file_txt << "Паспорт: " << passport.toUtf8().constData() << "\n";
+		file_txt << "Снилс: " << snils.toUtf8().constData() << "\n";
+		file_txt << "Машина: " << car.toUtf8().constData() << "\n";
+		file_txt << "Образование: " << education.toUtf8().constData() << "\n";
+		file_txt << "Место работы/учёбы: " << place_work.toUtf8().constData() << "\n";
+		file_txt << "Хобби: " << hobby.toUtf8().constData() << "\n\n";
+		file_txt << "Социальные сети:\nПочта: " << email.toUtf8().constData() << "\n";
+		file_txt << "ВКонтакте: " << vk.toUtf8().constData() << "\n";
+		file_txt << "Инстаграм: " << instagram.toUtf8().constData() << "\n";
+		file_txt << "Телеграм: " << telegram.toUtf8().constData() << "\n";
+		file_txt << "Другие соц. сети: " << other_social.toUtf8().constData() << "\n\n";
+		file_txt << "Родственники: " << relatives.toUtf8().constData() << "\n\n";
+		file_txt << "Другое:\n" << other.toUtf8().constData();
+
+		file_txt.close();
 	}
 }
 

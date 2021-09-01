@@ -137,28 +137,28 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
         return "ERROR";
     }
 
-	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :hobby, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
+	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :hobby, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
     sql.prepare(str_requests);
     sql.bindValue(":id", user_id);
-    sql.bindValue(":first_name", data_user.at(0));
-    sql.bindValue(":last_name", data_user.at(1));
-    sql.bindValue(":patronymic", data_user.at(2));
-    sql.bindValue(":age", data_user.at(3));
-    sql.bindValue(":birth", data_user.at(4));
-    sql.bindValue(":country_city", data_user.at(5));
-    sql.bindValue(":address", data_user.at(6));
-    sql.bindValue(":index_", data_user.at(7));
-    sql.bindValue(":number_phone", data_user.at(8));
-    sql.bindValue(":passport", data_user.at(9));
-    sql.bindValue(":snils", data_user.at(10));
-    sql.bindValue(":car", data_user.at(11));
-    sql.bindValue(":education", data_user.at(12));
-    sql.bindValue(":place_work", data_user.at(13));
-    sql.bindValue(":email", data_user.at(14));
-    sql.bindValue(":vk", data_user.at(15));
-    sql.bindValue(":instagram", data_user.at(16));
-    sql.bindValue(":telegram", data_user.at(17));
-    sql.bindValue(":other_social", data_user.at(18));
+	sql.bindValue(":first_name", data_user.at(0));
+	sql.bindValue(":last_name", data_user.at(1));
+	sql.bindValue(":patronymic", data_user.at(2));
+	sql.bindValue(":age", data_user.at(3));
+	sql.bindValue(":birth", data_user.at(4));
+	sql.bindValue(":country_city", data_user.at(5));
+	sql.bindValue(":address", data_user.at(6));
+	sql.bindValue(":index_", data_user.at(7));
+	sql.bindValue(":number_phone", data_user.at(8));
+	sql.bindValue(":passport", data_user.at(9));
+	sql.bindValue(":snils", data_user.at(10));
+	sql.bindValue(":car", data_user.at(11));
+	sql.bindValue(":education", data_user.at(12));
+	sql.bindValue(":place_work", data_user.at(13));
+	sql.bindValue(":email", data_user.at(14));
+	sql.bindValue(":vk", data_user.at(15));
+	sql.bindValue(":instagram", data_user.at(16));
+	sql.bindValue(":telegram", data_user.at(17));
+	sql.bindValue(":other_social", data_user.at(18));
 	sql.bindValue(":hobby", data_user.at(19));
 	sql.bindValue(":other", data_user.at(20));
 	sql.bindValue(":relatives", data_user.at(21));
@@ -173,11 +173,11 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
 	sql.bindValue(":name_doc_3", name_doc_3);
 	sql.bindValue(":user_doc_3", doc_bytes3);
 
-    if (!sql.exec())
-    {
-        qDebug(logError) << "Не удается добавить пользователя в БД " << db.lastError().text();
-        return "ERROR";
-    }
+	if (!sql.exec())
+	{
+		qDebug(logError) << "Не удается добавить пользователя в БД " << db.lastError().text();
+		return "ERROR";
+	}
 
     db.commit();
 	return "Success";

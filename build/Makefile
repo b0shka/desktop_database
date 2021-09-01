@@ -789,6 +789,8 @@ moc_add_user.cpp: ../src/add_user/add_user.h \
 		/opt/5.12.11/gcc_64/include/QtCore/qfileinfo.h \
 		/opt/5.12.11/gcc_64/include/QtCore/QBuffer \
 		/opt/5.12.11/gcc_64/include/QtCore/qbuffer.h \
+		/opt/5.12.11/gcc_64/include/QtCore/QByteArray \
+		/opt/5.12.11/gcc_64/include/QtCore/QFile \
 		/opt/5.12.11/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/5.12.11/gcc_64/include/QtWidgets/qmessagebox.h \
 		../src/database/database.h \
@@ -1393,6 +1395,8 @@ moc_mainwindow.cpp: ../src/mainwindow/mainwindow.h \
 		/opt/5.12.11/gcc_64/include/QtCore/QPoint \
 		/opt/5.12.11/gcc_64/include/QtCore/QBuffer \
 		/opt/5.12.11/gcc_64/include/QtCore/qbuffer.h \
+		/opt/5.12.11/gcc_64/include/QtCore/QByteArray \
+		/opt/5.12.11/gcc_64/include/QtCore/QFile \
 		/opt/5.12.11/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/5.12.11/gcc_64/include/QtWidgets/qmessagebox.h \
 		../src/database/database.h \
@@ -1826,6 +1830,8 @@ add_user.o: ../src/add_user/add_user.cpp ../src/add_user/add_user.h \
 		/opt/5.12.11/gcc_64/include/QtCore/qfileinfo.h \
 		/opt/5.12.11/gcc_64/include/QtCore/QBuffer \
 		/opt/5.12.11/gcc_64/include/QtCore/qbuffer.h \
+		/opt/5.12.11/gcc_64/include/QtCore/QByteArray \
+		/opt/5.12.11/gcc_64/include/QtCore/QFile \
 		/opt/5.12.11/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/5.12.11/gcc_64/include/QtWidgets/qmessagebox.h \
 		../src/database/database.h \
@@ -2767,6 +2773,8 @@ main.o: ../src/main.cpp ../src/mainwindow/mainwindow.h \
 		/opt/5.12.11/gcc_64/include/QtCore/QPoint \
 		/opt/5.12.11/gcc_64/include/QtCore/QBuffer \
 		/opt/5.12.11/gcc_64/include/QtCore/qbuffer.h \
+		/opt/5.12.11/gcc_64/include/QtCore/QByteArray \
+		/opt/5.12.11/gcc_64/include/QtCore/QFile \
 		/opt/5.12.11/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/5.12.11/gcc_64/include/QtWidgets/qmessagebox.h \
 		../src/database/database.h \
@@ -3104,6 +3112,8 @@ mainwindow.o: ../src/mainwindow/mainwindow.cpp ../src/mainwindow/mainwindow.h \
 		/opt/5.12.11/gcc_64/include/QtCore/QPoint \
 		/opt/5.12.11/gcc_64/include/QtCore/QBuffer \
 		/opt/5.12.11/gcc_64/include/QtCore/qbuffer.h \
+		/opt/5.12.11/gcc_64/include/QtCore/QByteArray \
+		/opt/5.12.11/gcc_64/include/QtCore/QFile \
 		/opt/5.12.11/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/5.12.11/gcc_64/include/QtWidgets/qmessagebox.h \
 		../src/database/database.h \

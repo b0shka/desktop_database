@@ -10,11 +10,14 @@
 #include <QByteArray>
 #include <QFile>
 #include <QMessageBox>
+#include <fstream>
+#include <string>
 #include "../database/database.h"
 #include "../logger/logger.h"
 #include "../popup/popup.h"
 #include "../main_data/data.h"
 
+using namespace std;
 namespace Ui {
 class Add_user;
 }
@@ -48,6 +51,7 @@ private slots:
 	void on_download_doc_2_clicked();
 	void on_download_doc_3_clicked();
 	void on_delete_user_clicked();
+	void on_convert_clicked();
     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Add_user_t {
-    QByteArrayData data[32];
-    char stringdata0[623];
+    QByteArrayData data[33];
+    char stringdata0[642];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -54,16 +54,17 @@ QT_MOC_LITERAL(18, 396, 25), // "on_download_doc_1_clicked"
 QT_MOC_LITERAL(19, 422, 25), // "on_download_doc_2_clicked"
 QT_MOC_LITERAL(20, 448, 25), // "on_download_doc_3_clicked"
 QT_MOC_LITERAL(21, 474, 22), // "on_delete_user_clicked"
-QT_MOC_LITERAL(22, 497, 13), // "keyPressEvent"
-QT_MOC_LITERAL(23, 511, 10), // "QKeyEvent*"
-QT_MOC_LITERAL(24, 522, 5), // "event"
-QT_MOC_LITERAL(25, 528, 15), // "mousePressEvent"
-QT_MOC_LITERAL(26, 544, 12), // "QMouseEvent*"
-QT_MOC_LITERAL(27, 557, 14), // "mouseMoveEvent"
-QT_MOC_LITERAL(28, 572, 13), // "add_info_user"
-QT_MOC_LITERAL(29, 586, 14), // "QList<QString>"
-QT_MOC_LITERAL(30, 601, 9), // "data_user"
-QT_MOC_LITERAL(31, 611, 11) // "bytes_photo"
+QT_MOC_LITERAL(22, 497, 18), // "on_convert_clicked"
+QT_MOC_LITERAL(23, 516, 13), // "keyPressEvent"
+QT_MOC_LITERAL(24, 530, 10), // "QKeyEvent*"
+QT_MOC_LITERAL(25, 541, 5), // "event"
+QT_MOC_LITERAL(26, 547, 15), // "mousePressEvent"
+QT_MOC_LITERAL(27, 563, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(28, 576, 14), // "mouseMoveEvent"
+QT_MOC_LITERAL(29, 591, 13), // "add_info_user"
+QT_MOC_LITERAL(30, 605, 14), // "QList<QString>"
+QT_MOC_LITERAL(31, 620, 9), // "data_user"
+QT_MOC_LITERAL(32, 630, 11) // "bytes_photo"
 
     },
     "Add_user\0on_close_clicked\0\0on_hide_clicked\0"
@@ -81,9 +82,10 @@ QT_MOC_LITERAL(31, 611, 11) // "bytes_photo"
     "on_download_doc_1_clicked\0"
     "on_download_doc_2_clicked\0"
     "on_download_doc_3_clicked\0"
-    "on_delete_user_clicked\0keyPressEvent\0"
-    "QKeyEvent*\0event\0mousePressEvent\0"
-    "QMouseEvent*\0mouseMoveEvent\0add_info_user\0"
+    "on_delete_user_clicked\0on_convert_clicked\0"
+    "keyPressEvent\0QKeyEvent*\0event\0"
+    "mousePressEvent\0QMouseEvent*\0"
+    "mouseMoveEvent\0add_info_user\0"
     "QList<QString>\0data_user\0bytes_photo"
 };
 #undef QT_MOC_LITERAL
@@ -94,7 +96,7 @@ static const uint qt_meta_data_Add_user[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      24,   14, // methods
+      25,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -102,30 +104,31 @@ static const uint qt_meta_data_Add_user[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  134,    2, 0x08 /* Private */,
-       3,    0,  135,    2, 0x08 /* Private */,
-       4,    0,  136,    2, 0x08 /* Private */,
-       5,    0,  137,    2, 0x08 /* Private */,
-       6,    0,  138,    2, 0x08 /* Private */,
-       7,    0,  139,    2, 0x08 /* Private */,
-       8,    0,  140,    2, 0x08 /* Private */,
-       9,    0,  141,    2, 0x08 /* Private */,
-      10,    0,  142,    2, 0x08 /* Private */,
-      11,    0,  143,    2, 0x08 /* Private */,
-      12,    0,  144,    2, 0x08 /* Private */,
-      13,    0,  145,    2, 0x08 /* Private */,
-      14,    0,  146,    2, 0x08 /* Private */,
-      15,    0,  147,    2, 0x08 /* Private */,
-      16,    0,  148,    2, 0x08 /* Private */,
-      17,    0,  149,    2, 0x08 /* Private */,
-      18,    0,  150,    2, 0x08 /* Private */,
-      19,    0,  151,    2, 0x08 /* Private */,
-      20,    0,  152,    2, 0x08 /* Private */,
-      21,    0,  153,    2, 0x08 /* Private */,
-      22,    1,  154,    2, 0x08 /* Private */,
-      25,    1,  157,    2, 0x08 /* Private */,
-      27,    1,  160,    2, 0x08 /* Private */,
-      28,    2,  163,    2, 0x08 /* Private */,
+       1,    0,  139,    2, 0x08 /* Private */,
+       3,    0,  140,    2, 0x08 /* Private */,
+       4,    0,  141,    2, 0x08 /* Private */,
+       5,    0,  142,    2, 0x08 /* Private */,
+       6,    0,  143,    2, 0x08 /* Private */,
+       7,    0,  144,    2, 0x08 /* Private */,
+       8,    0,  145,    2, 0x08 /* Private */,
+       9,    0,  146,    2, 0x08 /* Private */,
+      10,    0,  147,    2, 0x08 /* Private */,
+      11,    0,  148,    2, 0x08 /* Private */,
+      12,    0,  149,    2, 0x08 /* Private */,
+      13,    0,  150,    2, 0x08 /* Private */,
+      14,    0,  151,    2, 0x08 /* Private */,
+      15,    0,  152,    2, 0x08 /* Private */,
+      16,    0,  153,    2, 0x08 /* Private */,
+      17,    0,  154,    2, 0x08 /* Private */,
+      18,    0,  155,    2, 0x08 /* Private */,
+      19,    0,  156,    2, 0x08 /* Private */,
+      20,    0,  157,    2, 0x08 /* Private */,
+      21,    0,  158,    2, 0x08 /* Private */,
+      22,    0,  159,    2, 0x08 /* Private */,
+      23,    1,  160,    2, 0x08 /* Private */,
+      26,    1,  163,    2, 0x08 /* Private */,
+      28,    1,  166,    2, 0x08 /* Private */,
+      29,    2,  169,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -148,10 +151,11 @@ static const uint qt_meta_data_Add_user[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 23,   24,
-    QMetaType::Void, 0x80000000 | 26,   24,
-    QMetaType::Void, 0x80000000 | 26,   24,
-    QMetaType::Void, 0x80000000 | 29, QMetaType::QByteArrayList,   30,   31,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 24,   25,
+    QMetaType::Void, 0x80000000 | 27,   25,
+    QMetaType::Void, 0x80000000 | 27,   25,
+    QMetaType::Void, 0x80000000 | 30, QMetaType::QByteArrayList,   31,   32,
 
        0        // eod
 };
@@ -182,16 +186,17 @@ void Add_user::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 17: _t->on_download_doc_2_clicked(); break;
         case 18: _t->on_download_doc_3_clicked(); break;
         case 19: _t->on_delete_user_clicked(); break;
-        case 20: _t->keyPressEvent((*reinterpret_cast< QKeyEvent*(*)>(_a[1]))); break;
-        case 21: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
-        case 22: _t->mouseMoveEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
-        case 23: _t->add_info_user((*reinterpret_cast< const QList<QString>(*)>(_a[1])),(*reinterpret_cast< const QList<QByteArray>(*)>(_a[2]))); break;
+        case 20: _t->on_convert_clicked(); break;
+        case 21: _t->keyPressEvent((*reinterpret_cast< QKeyEvent*(*)>(_a[1]))); break;
+        case 22: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 23: _t->mouseMoveEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 24: _t->add_info_user((*reinterpret_cast< const QList<QString>(*)>(_a[1])),(*reinterpret_cast< const QList<QByteArray>(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 23:
+        case 24:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -231,13 +236,13 @@ int Add_user::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 24)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 25;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 24)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 25;
     }
     return _id;
 }
