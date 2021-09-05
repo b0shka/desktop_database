@@ -44,6 +44,8 @@ void MainWindow::get_users_from_db()
         popUp->setPopupText("Нет записей в БД");
         popUp->show();
     }
+
+    check_birth_day();
 }
 
 void MainWindow::add_users_to_listWidget(QList<QList<QString>> list_result)
@@ -150,17 +152,46 @@ void MainWindow::on_open_db_clicked()
 	{
 		QString result_start = database.first_start(filename);
 		if (result_start == "ERROR")
-		{
-			qDebug(logError()) << "Старт программы";
+        {
 			popUp->setPopupText("Ошибка при старте прогрммы");
 			popUp->show();
 		}
 		else
 		{
 			database.get_data_filter();
-			get_users_from_db();
+            get_users_from_db();
 		}
 	}
+}
+
+void MainWindow::check_birth_day()
+{
+    QList<QString> data;
+    QList<QList<QString>> list_birth = database.get_birth_users();
+
+    if (list_birth.size() != 0 && list_birth[0][0] != "ERROR")
+    {
+        QDate date_now = QDate::currentDate();
+
+        for (QList<QString> i : list_birth)
+        {
+            if (i[2] != "")
+            {
+                data = i[2].split(".");
+
+                if ((data[0] + "." + data[1]) == date_now.toString("dd.MM"))
+                {
+                    popUp->setPopupText("Сегодня день рождения у " + i[0] + " " + i[1]);
+                    popUp->show();
+                }
+            }
+        }
+    }
+    else
+    {
+        popUp->setPopupText("Ошибка при получении дат рождения");
+        popUp->show();
+    }
 }
 
 void MainWindow::on_all_users_itemDoubleClicked(QListWidgetItem *item)

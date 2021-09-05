@@ -303,11 +303,13 @@ void Add_user::on_convert_clicked()
 		file_txt << "ВКонтакте: " << vk.toUtf8().constData() << "\n";
 		file_txt << "Инстаграм: " << instagram.toUtf8().constData() << "\n";
 		file_txt << "Телеграм: " << telegram.toUtf8().constData() << "\n";
-		file_txt << "Другие соц. сети: " << other_social.toUtf8().constData() << "\n\n";
-		file_txt << "Родственники: " << relatives.toUtf8().constData() << "\n\n";
+		file_txt << "Другие соц. сети:\n" << other_social.toUtf8().constData() << "\n\n";
+		file_txt << "Родственники:\n" << relatives.toUtf8().constData() << "\n\n";
 		file_txt << "Другое:\n" << other.toUtf8().constData();
 
 		file_txt.close();
+		popUp->setPopupText("Конвертация успешно завершена");
+		popUp->show();
 	}
 }
 

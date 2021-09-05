@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <QFileDialog>
+#include <QDate>
 #include "../add_user/add_user.h"
 #include "../filter/filter.h"
 #include "../database/database.h"
@@ -31,6 +32,7 @@ private slots:
 	void on_filter_clicked();
 	void on_new_database_clicked();
 	void on_open_db_clicked();
+    void check_birth_day();
 	void on_search_returnPressed();
 	void on_all_users_itemDoubleClicked(QListWidgetItem *item);
     void keyPressEvent(QKeyEvent *event);

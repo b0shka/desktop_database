@@ -30,6 +30,7 @@ public:
 	QString delete_table(const QString &delete_name_table);
 	int get_count_table();
 	void delete_user(const QString &table, const QString &id);
+    QList<QList<QString>> get_birth_users();
 
 private:
     QSqlDatabase db;

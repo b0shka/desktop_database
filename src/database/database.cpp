@@ -451,5 +451,30 @@ void Database::delete_user(const QString &table, const QString &id)
 	if (!sql.exec(str_requests.arg(id)))
 		qDebug() << "Не удается удалить запись из старой таблицы";
 
-	db.commit();
+    db.commit();
+}
+
+QList<QList<QString>> Database::get_birth_users()
+{
+    str_requests = "SELECT first_name, last_name, birth FROM " + g_table + ";";
+
+    if (!sql.exec(str_requests))
+    {
+        qDebug(logError) << "Не удалется получить даты рождения " << db.lastError().text();
+        return {{"ERROR"}};
+    }
+
+    QSqlRecord get_data = sql.record();
+    QList<QList<QString>> list_birth;
+    QString first_name, last_name, birth;
+
+    while (sql.next())
+    {
+        first_name = sql.value(get_data.indexOf("first_name")).toString();
+        last_name = sql.value(get_data.indexOf("last_name")).toString();
+        birth = sql.value(get_data.indexOf("birth")).toString();
+        list_birth.push_back({first_name, last_name, birth});
+    }
+
+    return list_birth;
 }
