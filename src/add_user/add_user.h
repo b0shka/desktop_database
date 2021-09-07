@@ -31,6 +31,7 @@ public:
     ~Add_user();
 
 private slots:
+    QList<QString> get_data_user();
     void on_close_clicked();
     void on_hide_clicked();
 	void on_add_save_user_clicked();

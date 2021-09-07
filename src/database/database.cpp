@@ -57,7 +57,8 @@ QString Database::add_new_table(const QString &new_name_table)
 													"country_city TEXT,"
 													"address TEXT,"
 													"index_ VARCHAR (6),"
-													"number_phone VARCHAR (20),"
+                                                    "number_phone VARCHAR (20),"
+"phone TEXT,"
 													"passport TEXT,"
 													"snils TEXT,"
 													"car TEXT,"
@@ -137,7 +138,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
         return "ERROR";
     }
 
-	str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :hobby, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
+    str_requests = "INSERT INTO " + g_table + " (id, first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, user_photo_1, user_photo_2, user_photo_3, user_photo_4, name_doc_1, user_doc_1, name_doc_2, user_doc_2, name_doc_3, user_doc_3) VALUES(:id, :first_name, :last_name, :patronymic, :age, :birth, :country_city, :address, :index_, :number_phone, :phone, :passport, :snils, :car, :education, :place_work, :email, :vk, :instagram, :telegram, :other_social, :hobby, :other, :relatives, :user_photo_1, :user_photo_2, :user_photo_3, :user_photo_4, :name_doc_1, :user_doc_1, :name_doc_2, :user_doc_2, :name_doc_3, :user_doc_3);";
     sql.prepare(str_requests);
     sql.bindValue(":id", user_id);
 	sql.bindValue(":first_name", data_user.at(0));
@@ -149,19 +150,20 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
 	sql.bindValue(":address", data_user.at(6));
 	sql.bindValue(":index_", data_user.at(7));
 	sql.bindValue(":number_phone", data_user.at(8));
-	sql.bindValue(":passport", data_user.at(9));
-	sql.bindValue(":snils", data_user.at(10));
-	sql.bindValue(":car", data_user.at(11));
-	sql.bindValue(":education", data_user.at(12));
-	sql.bindValue(":place_work", data_user.at(13));
-	sql.bindValue(":email", data_user.at(14));
-	sql.bindValue(":vk", data_user.at(15));
-	sql.bindValue(":instagram", data_user.at(16));
-	sql.bindValue(":telegram", data_user.at(17));
-	sql.bindValue(":other_social", data_user.at(18));
-	sql.bindValue(":hobby", data_user.at(19));
-	sql.bindValue(":other", data_user.at(20));
-	sql.bindValue(":relatives", data_user.at(21));
+    sql.bindValue(":phone", data_user.at(9));
+    sql.bindValue(":passport", data_user.at(10));
+    sql.bindValue(":snils", data_user.at(11));
+    sql.bindValue(":car", data_user.at(12));
+    sql.bindValue(":education", data_user.at(13));
+    sql.bindValue(":place_work", data_user.at(14));
+    sql.bindValue(":email", data_user.at(15));
+    sql.bindValue(":vk", data_user.at(16));
+    sql.bindValue(":instagram", data_user.at(17));
+    sql.bindValue(":telegram", data_user.at(18));
+    sql.bindValue(":other_social", data_user.at(19));
+    sql.bindValue(":hobby", data_user.at(20));
+    sql.bindValue(":other", data_user.at(21));
+    sql.bindValue(":relatives", data_user.at(22));
 	sql.bindValue(":user_photo_1", image_bytes1);
 	sql.bindValue(":user_photo_2", image_bytes2);
 	sql.bindValue(":user_photo_3", image_bytes3);
@@ -185,7 +187,7 @@ QString Database::add_user(const QList<QString> &data_user, const QByteArray &im
 
 QString Database::update_user(const QList<QString> &data_user, const QString &id, const QByteArray &image_bytes1, const QByteArray &image_bytes2, const QByteArray &image_bytes3, const QByteArray &image_bytes4, const QString &name_doc_1, const QByteArray &doc_bytes1, const QString &name_doc_2, const QByteArray &doc_bytes2, const QString &name_doc_3, const QByteArray &doc_bytes3)
 {
-	str_requests = "UPDATE " + g_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), hobby = (:hobby), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4), name_doc_1 = (:name_doc_1), user_doc_1 = (:user_doc_1), name_doc_2 = (:name_doc_2), user_doc_2 = (:user_doc_2), name_doc_3 = (:name_doc_3), user_doc_3 = (:user_doc_3) WHERE id = (:id);";
+    str_requests = "UPDATE " + g_table + " SET first_name = (:first_name), last_name = (:last_name), patronymic = (:patronymic), age = (:age), birth = (:birth), country_city = (:country_city), address = (:address), index_ = (:index_), number_phone = (:number_phone), phone = (:phone), passport = (:passport), snils = (:snils), car = (:car), education = (:education), place_work = (:place_work), email = (:email), vk = (:vk), instagram = (:instagram), telegram = (:telegram), other_social = (:other_social), hobby = (:hobby), other = (:other), relatives = (:relatives), user_photo_1 = (:user_photo_1), user_photo_2 = (:user_photo_2), user_photo_3 = (:user_photo_3), user_photo_4 = (:user_photo_4), name_doc_1 = (:name_doc_1), user_doc_1 = (:user_doc_1), name_doc_2 = (:name_doc_2), user_doc_2 = (:user_doc_2), name_doc_3 = (:name_doc_3), user_doc_3 = (:user_doc_3) WHERE id = (:id);";
 	sql.prepare(str_requests);
 	sql.bindValue(":id", id);
 	sql.bindValue(":first_name", data_user.at(0));
@@ -197,19 +199,20 @@ QString Database::update_user(const QList<QString> &data_user, const QString &id
 	sql.bindValue(":address", data_user.at(6));
 	sql.bindValue(":index_", data_user.at(7));
 	sql.bindValue(":number_phone", data_user.at(8));
-	sql.bindValue(":passport", data_user.at(9));
-	sql.bindValue(":snils", data_user.at(10));
-	sql.bindValue(":car", data_user.at(11));
-	sql.bindValue(":education", data_user.at(12));
-	sql.bindValue(":place_work", data_user.at(13));
-	sql.bindValue(":email", data_user.at(14));
-	sql.bindValue(":vk", data_user.at(15));
-	sql.bindValue(":instagram", data_user.at(16));
-	sql.bindValue(":telegram", data_user.at(17));
-	sql.bindValue(":other_social", data_user.at(18));
-	sql.bindValue(":hobby", data_user.at(19));
-	sql.bindValue(":other", data_user.at(20));
-	sql.bindValue(":relatives", data_user.at(21));
+    sql.bindValue(":phone", data_user.at(9));
+    sql.bindValue(":passport", data_user.at(10));
+    sql.bindValue(":snils", data_user.at(11));
+    sql.bindValue(":car", data_user.at(12));
+    sql.bindValue(":education", data_user.at(13));
+    sql.bindValue(":place_work", data_user.at(14));
+    sql.bindValue(":email", data_user.at(15));
+    sql.bindValue(":vk", data_user.at(16));
+    sql.bindValue(":instagram", data_user.at(17));
+    sql.bindValue(":telegram", data_user.at(18));
+    sql.bindValue(":other_social", data_user.at(19));
+    sql.bindValue(":hobby", data_user.at(20));
+    sql.bindValue(":other", data_user.at(21));
+    sql.bindValue(":relatives", data_user.at(22));
 	sql.bindValue(":user_photo_1", image_bytes1);
 	sql.bindValue(":user_photo_2", image_bytes2);
 	sql.bindValue(":user_photo_3", image_bytes3);
@@ -260,7 +263,7 @@ int Database::generate_id(const QString &table_)
 
 QList<QString> Database::get_data_user(const QString &id)
 {
-	str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
+    str_requests = "SELECT first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3 relatives FROM " + g_table + " WHERE id = ('%1');";
 
 	if (!sql.exec(str_requests.arg(id)))
 	{
@@ -269,7 +272,7 @@ QList<QString> Database::get_data_user(const QString &id)
 	}
 
 	QSqlRecord get_data = sql.record();
-	QString first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
+    QString first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
 
 	while (sql.next())
 	{
@@ -282,6 +285,7 @@ QList<QString> Database::get_data_user(const QString &id)
 		address = sql.value(get_data.indexOf("address")).toString();
 		index_ = sql.value(get_data.indexOf("index_")).toString();
 		number_phone = sql.value(get_data.indexOf("number_phone")).toString();
+        phone = sql.value(get_data.indexOf("phone")).toString();
 		passport = sql.value(get_data.indexOf("passport")).toString();
 		snils = sql.value(get_data.indexOf("snils")).toString();
 		car = sql.value(get_data.indexOf("car")).toString();
@@ -300,7 +304,7 @@ QList<QString> Database::get_data_user(const QString &id)
 		name_doc_3 = sql.value(get_data.indexOf("name_doc_3")).toString();
 	}
 
-	QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3};
+    QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3};
 
 	return data_user;
 }
@@ -477,4 +481,19 @@ QList<QList<QString>> Database::get_birth_users()
     }
 
     return list_birth;
+}
+
+int Database::rename_table(const QString &new_name)
+{
+    str_requests = "ALTER TABLE " + g_table + " RENAME TO " + new_name + ";";
+
+    if (!sql.exec(str_requests))
+    {
+        qDebug(logError) << "Не удалется изменить название таблицы " << db.lastError().text();
+        return 0;
+    }
+
+    g_table = new_name;
+    db.commit();
+    return 1;
 }

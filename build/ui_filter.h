@@ -40,6 +40,8 @@ public:
     QPushButton *delete_table;
     QPushButton *new_table;
     QLineEdit *name_table;
+    QLineEdit *new_name_table;
+    QPushButton *rename_table;
 
     void setupUi(QDialog *Filter)
     {
@@ -224,7 +226,7 @@ public:
 "}"));
         new_table = new QPushButton(frame);
         new_table->setObjectName(QString::fromUtf8("new_table"));
-        new_table->setGeometry(QRect(210, 140, 31, 31));
+        new_table->setGeometry(QRect(210, 170, 31, 31));
         new_table->setFont(font2);
         new_table->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	font-size: 22px;\n"
@@ -238,7 +240,7 @@ public:
 "}"));
         name_table = new QLineEdit(frame);
         name_table->setObjectName(QString::fromUtf8("name_table"));
-        name_table->setGeometry(QRect(15, 140, 186, 31));
+        name_table->setGeometry(QRect(15, 170, 186, 31));
         name_table->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "	font-size: 14px;\n"
 "	color: white;\n"
@@ -249,6 +251,34 @@ public:
 "\n"
 "QLineEdit::hover {\n"
 "	background-color: #949494;\n"
+"}"));
+        new_name_table = new QLineEdit(frame);
+        new_name_table->setObjectName(QString::fromUtf8("new_name_table"));
+        new_name_table->setGeometry(QRect(15, 130, 186, 31));
+        new_name_table->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+"	font-size: 14px;\n"
+"	color: white;\n"
+"	background-color: #404040;\n"
+"	border-radius: 5px;\n"
+"	padding-left: 7px;\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"	background-color: #949494;\n"
+"}"));
+        rename_table = new QPushButton(frame);
+        rename_table->setObjectName(QString::fromUtf8("rename_table"));
+        rename_table->setGeometry(QRect(210, 130, 31, 31));
+        rename_table->setFont(font2);
+        rename_table->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	font-size: 22px;\n"
+"	color: #2a2a2a;\n"
+"	background-color: #73ffa1;\n"
+"	border-radius: 5px;\n"
+"	font-weight: bold;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	background-color: #54ff8d;\n"
 "}"));
 
         retranslateUi(Filter);
@@ -276,6 +306,9 @@ public:
         new_table->setText(QApplication::translate("Filter", "+", nullptr));
         name_table->setText(QString());
         name_table->setPlaceholderText(QApplication::translate("Filter", "\320\235\320\260\320\267\320\262\320\260\320\275\320\270\320\265 \321\202\320\260\320\261\320\273\320\270\321\206\321\213", nullptr));
+        new_name_table->setText(QString());
+        new_name_table->setPlaceholderText(QApplication::translate("Filter", "\320\237\320\265\321\200\320\265\320\270\320\274\320\265\320\275\320\276\320\262\320\260\321\202\321\214 \321\202\320\260\320\261\320\273\320\270\321\206\321\203", nullptr));
+        rename_table->setText(QApplication::translate("Filter", "\342\234\223", nullptr));
     } // retranslateUi
 
 };

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>677</width>
-    <height>670</height>
+    <height>724</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@ color: white;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>676</width>
-     <height>671</height>
+     <width>671</width>
+     <height>711</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -257,7 +257,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>565</x>
-      <y>630</y>
+      <y>675</y>
       <width>106</width>
       <height>31</height>
      </rect>
@@ -404,7 +404,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>445</y>
+      <y>490</y>
       <width>211</width>
       <height>36</height>
      </rect>
@@ -427,7 +427,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>490</y>
+      <y>535</y>
       <width>211</width>
       <height>36</height>
      </rect>
@@ -450,7 +450,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>535</y>
+      <y>580</y>
       <width>211</width>
       <height>36</height>
      </rect>
@@ -588,7 +588,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>490</y>
+      <y>535</y>
       <width>231</width>
       <height>171</height>
      </rect>
@@ -613,7 +613,7 @@ padding-left: 5px;</string>
       <x>230</x>
       <y>310</y>
       <width>231</width>
-      <height>81</height>
+      <height>126</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -906,7 +906,7 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>565</x>
-      <y>590</y>
+      <y>635</y>
       <width>106</width>
       <height>31</height>
      </rect>
@@ -945,7 +945,7 @@ QComboBox::drop-down::hover {
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>630</y>
+      <y>675</y>
       <width>86</width>
       <height>31</height>
      </rect>
@@ -1362,7 +1362,7 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>580</y>
+      <y>625</y>
       <width>211</width>
       <height>81</height>
      </rect>
@@ -1408,7 +1408,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>400</y>
+      <y>445</y>
       <width>231</width>
       <height>81</height>
      </rect>
@@ -1431,7 +1431,7 @@ padding-left: 5px;</string>
     <property name="geometry">
      <rect>
       <x>525</x>
-      <y>590</y>
+      <y>635</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -1459,6 +1459,29 @@ QPushButton::hover {
     </property>
     <property name="text">
      <string>🗘</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="phone">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>445</y>
+      <width>211</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 13px;
+color: white;
+background-color: #404040;
+border-radius: 5px;
+padding-left: 5px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Телефон</string>
     </property>
    </widget>
   </widget>

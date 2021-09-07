@@ -31,6 +31,7 @@ public:
 	int get_count_table();
 	void delete_user(const QString &table, const QString &id);
     QList<QList<QString>> get_birth_users();
+    int rename_table(const QString &new_name);
 
 private:
     QSqlDatabase db;

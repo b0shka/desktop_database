@@ -78,19 +78,20 @@ public:
     QTextEdit *place_work;
     QTextEdit *hobby;
     QPushButton *convert;
+    QLineEdit *phone;
 
     void setupUi(QDialog *Add_user)
     {
         if (Add_user->objectName().isEmpty())
             Add_user->setObjectName(QString::fromUtf8("Add_user"));
-        Add_user->resize(677, 670);
+        Add_user->resize(677, 724);
         Add_user->setStyleSheet(QString::fromUtf8("border: none;\n"
 "border-radius: 5px;\n"
 "background-color: #2a2a2a;\n"
 "color: white;"));
         frame = new QFrame(Add_user);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(0, 0, 676, 671));
+        frame->setGeometry(QRect(0, 0, 671, 711));
         frame->setMinimumSize(QSize(636, 581));
         frame->setMaximumSize(QSize(5555, 5555));
         frame->setStyleSheet(QString::fromUtf8("border: none;\n"
@@ -178,7 +179,7 @@ public:
 "padding-left: 5px;"));
         add_save_user = new QPushButton(frame);
         add_save_user->setObjectName(QString::fromUtf8("add_save_user"));
-        add_save_user->setGeometry(QRect(565, 630, 106, 31));
+        add_save_user->setGeometry(QRect(565, 675, 106, 31));
         QFont font1;
         font1.setBold(false);
         font1.setWeight(50);
@@ -235,7 +236,7 @@ public:
 "padding-left: 5px;"));
         passport = new QLineEdit(frame);
         passport->setObjectName(QString::fromUtf8("passport"));
-        passport->setGeometry(QRect(10, 445, 211, 36));
+        passport->setGeometry(QRect(10, 490, 211, 36));
         passport->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -243,7 +244,7 @@ public:
 "padding-left: 5px;"));
         snils = new QLineEdit(frame);
         snils->setObjectName(QString::fromUtf8("snils"));
-        snils->setGeometry(QRect(10, 490, 211, 36));
+        snils->setGeometry(QRect(10, 535, 211, 36));
         snils->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -251,7 +252,7 @@ public:
 "padding-left: 5px;"));
         car = new QLineEdit(frame);
         car->setObjectName(QString::fromUtf8("car"));
-        car->setGeometry(QRect(10, 535, 211, 36));
+        car->setGeometry(QRect(10, 580, 211, 36));
         car->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -300,7 +301,7 @@ public:
         relatives->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other = new QTextEdit(frame);
         other->setObjectName(QString::fromUtf8("other"));
-        other->setGeometry(QRect(230, 490, 231, 171));
+        other->setGeometry(QRect(230, 535, 231, 171));
         other->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -309,7 +310,7 @@ public:
         other->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         other_social = new QTextEdit(frame);
         other_social->setObjectName(QString::fromUtf8("other_social"));
-        other_social->setGeometry(QRect(230, 310, 231, 81));
+        other_social->setGeometry(QRect(230, 310, 231, 126));
         other_social->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -426,7 +427,7 @@ public:
 "}"));
         list_table = new QComboBox(frame);
         list_table->setObjectName(QString::fromUtf8("list_table"));
-        list_table->setGeometry(QRect(565, 590, 106, 31));
+        list_table->setGeometry(QRect(565, 635, 106, 31));
         list_table->setStyleSheet(QString::fromUtf8("QComboBox {\n"
 "	border: none;\n"
 "	border-radius: 5px;\n"
@@ -450,7 +451,7 @@ public:
         list_table->setFrame(true);
         delete_user = new QPushButton(frame);
         delete_user->setObjectName(QString::fromUtf8("delete_user"));
-        delete_user->setGeometry(QRect(470, 630, 86, 31));
+        delete_user->setGeometry(QRect(470, 675, 86, 31));
         QFont font2;
         font2.setBold(false);
         font2.setItalic(false);
@@ -636,7 +637,7 @@ public:
 "}"));
         education = new QTextEdit(frame);
         education->setObjectName(QString::fromUtf8("education"));
-        education->setGeometry(QRect(10, 580, 211, 81));
+        education->setGeometry(QRect(10, 625, 211, 81));
         education->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -654,7 +655,7 @@ public:
         place_work->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         hobby = new QTextEdit(frame);
         hobby->setObjectName(QString::fromUtf8("hobby"));
-        hobby->setGeometry(QRect(230, 400, 231, 81));
+        hobby->setGeometry(QRect(230, 445, 231, 81));
         hobby->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
 "color: white;\n"
 "background-color: #404040;\n"
@@ -663,7 +664,7 @@ public:
         hobby->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         convert = new QPushButton(frame);
         convert->setObjectName(QString::fromUtf8("convert"));
-        convert->setGeometry(QRect(525, 590, 31, 31));
+        convert->setGeometry(QRect(525, 635, 31, 31));
         QFont font3;
         font3.setBold(true);
         font3.setItalic(false);
@@ -680,6 +681,14 @@ public:
 "QPushButton::hover {\n"
 "	background-color: #949494;\n"
 "}"));
+        phone = new QLineEdit(frame);
+        phone->setObjectName(QString::fromUtf8("phone"));
+        phone->setGeometry(QRect(10, 445, 211, 36));
+        phone->setStyleSheet(QString::fromUtf8("font-size: 13px;\n"
+"color: white;\n"
+"background-color: #404040;\n"
+"border-radius: 5px;\n"
+"padding-left: 5px;"));
 
         retranslateUi(Add_user);
 
@@ -756,6 +765,8 @@ public:
         place_work->setPlaceholderText(QApplication::translate("Add_user", "\320\234\320\265\321\201\321\202\320\276 \321\200\320\260\320\261\320\276\321\202\321\213/\321\203\321\207\321\221\320\261\321\213", nullptr));
         hobby->setPlaceholderText(QApplication::translate("Add_user", "\320\245\320\276\320\261\320\261\320\270", nullptr));
         convert->setText(QApplication::translate("Add_user", "\360\237\227\230", nullptr));
+        phone->setText(QString());
+        phone->setPlaceholderText(QApplication::translate("Add_user", "\320\242\320\265\320\273\320\265\321\204\320\276\320\275", nullptr));
     } // retranslateUi
 
 };

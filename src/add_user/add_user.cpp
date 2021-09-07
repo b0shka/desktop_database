@@ -75,22 +75,23 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 	ui->address->setText(data_user.at(6));
 	ui->index_->setText(data_user.at(7));
 	ui->number_phone->setText(data_user.at(8));
-	ui->passport->setText(data_user.at(9));
-	ui->snils->setText(data_user.at(10));
-	ui->car->setText(data_user.at(11));
-	ui->education->setText(data_user.at(12));
-	ui->place_work->setText(data_user.at(13));
-	ui->email->setText(data_user.at(14));
-	ui->vk->setText(data_user.at(15));
-	ui->instagram->setText(data_user.at(16));
-	ui->telegram->setText(data_user.at(17));
-	ui->other_social->setText(data_user.at(18));
-	ui->hobby->setText(data_user.at(19));
-	ui->other->setText(data_user.at(20));
-	ui->relatives->setText(data_user.at(21));
-	ui->doc_1->setText(data_user.at(22));
-	ui->doc_2->setText(data_user.at(23));
-	ui->doc_3->setText(data_user.at(24));
+    ui->phone->setText(data_user.at(9));
+    ui->passport->setText(data_user.at(10));
+    ui->snils->setText(data_user.at(11));
+    ui->car->setText(data_user.at(12));
+    ui->education->setText(data_user.at(13));
+    ui->place_work->setText(data_user.at(14));
+    ui->email->setText(data_user.at(15));
+    ui->vk->setText(data_user.at(16));
+    ui->instagram->setText(data_user.at(17));
+    ui->telegram->setText(data_user.at(18));
+    ui->other_social->setText(data_user.at(19));
+    ui->hobby->setText(data_user.at(20));
+    ui->other->setText(data_user.at(21));
+    ui->relatives->setText(data_user.at(22));
+    ui->doc_1->setText(data_user.at(23));
+    ui->doc_2->setText(data_user.at(24));
+    ui->doc_3->setText(data_user.at(25));
 
 	if (bytes_photo.size() == 0)
 	{
@@ -159,7 +160,7 @@ void Add_user::add_info_user(const QList<QString> &data_user, const QList<QByteA
 
 void Add_user::on_add_save_user_clicked()
 {
-	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
+    QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
 
     first_name = ui->first_name->text();
 	check_first_name = first_name.replace(" ", "");
@@ -181,6 +182,7 @@ void Add_user::on_add_save_user_clicked()
 		address = ui->address->text();
 		index_ = ui->index_->text();
 		number_phone = ui->number_phone->text();
+        phone = ui->phone->text();
 		passport = ui->passport->text();
 		snils = ui->snils->text();
 		car = ui->car->text();
@@ -198,7 +200,7 @@ void Add_user::on_add_save_user_clicked()
 		name_doc_2 = ui->doc_2->text();
 		name_doc_3 = ui->doc_3->text();
 
-		QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives};
+        QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives};
 		QString result_add;
 		QString old_table = g_table;
 		g_table = ui->list_table->currentText();
@@ -245,9 +247,58 @@ void Add_user::on_delete_user_clicked()
 	}
 }
 
+QList<QString> Add_user::get_data_user()
+{
+    QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_doc_1, name_doc_2, name_doc_3;
+
+    first_name = ui->first_name->text();
+    check_first_name = first_name.replace(" ", "");
+
+    if (check_first_name.size() == 0)
+    {
+        ui->first_name->setFocus();
+        ui->first_name->setStyleSheet(lock_style);
+        return {"ERROR"};
+    }
+    else
+    {
+        ui->first_name->setStyleSheet(default_style);
+
+        last_name = ui->last_name->text();
+        patronymic = ui->patronymic->text();
+        age = ui->age->text();
+        birth = ui->birth->text();
+        country_city = ui->country_city->text();
+        address = ui->address->text();
+        index_ = ui->index_->text();
+        number_phone = ui->number_phone->text();
+        phone = ui->phone->text();
+        passport = ui->passport->text();
+        snils = ui->snils->text();
+        car = ui->car->text();
+        education = ui->education->toPlainText();
+        place_work = ui->place_work->toPlainText();
+        email = ui->email->text();
+        vk = ui->vk->text();
+        instagram = ui->instagram->text();
+        telegram = ui->telegram->text();
+        other_social = ui->other_social->toPlainText();
+        hobby = ui->hobby->toPlainText();
+        other = ui->other->toPlainText();
+        relatives = ui->relatives->toPlainText();
+        name_doc_1 = ui->doc_1->text();
+        name_doc_2 = ui->doc_2->text();
+        name_doc_3 = ui->doc_3->text();
+
+        QList<QString> data_user = {first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives};
+
+        return data_user;
+    }
+}
+
 void Add_user::on_convert_clicked()
 {
-	QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_file;
+    QString first_name, check_first_name, last_name, patronymic, age, birth, country_city, address, index_, number_phone, phone, passport, snils, car, education, place_work, email, vk, instagram, telegram, other_social, hobby, other, relatives, name_file;
 
 	first_name = ui->first_name->text();
 	check_first_name = first_name.replace(" ", "");
@@ -269,6 +320,7 @@ void Add_user::on_convert_clicked()
 		address = ui->address->text();
 		index_ = ui->index_->text();
 		number_phone = ui->number_phone->text();
+        phone = ui->phone->text();
 		passport = ui->passport->text();
 		snils = ui->snils->text();
 		car = ui->car->text();
@@ -293,6 +345,7 @@ void Add_user::on_convert_clicked()
 		file_txt << country_city.toUtf8().constData() << "\n";
 		file_txt << "Адрес: " << address.toUtf8().constData() << " " << index_.toUtf8().constData() << "\n";
 		file_txt << "Номер телефона: " << number_phone.toUtf8().constData() << "\n";
+        file_txt << "Телефон: " << phone.toUtf8().constData() << "\n";
 		file_txt << "Паспорт: " << passport.toUtf8().constData() << "\n";
 		file_txt << "Снилс: " << snils.toUtf8().constData() << "\n";
 		file_txt << "Машина: " << car.toUtf8().constData() << "\n";

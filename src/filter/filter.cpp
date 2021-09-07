@@ -29,6 +29,25 @@ void Filter::add_info()
 	list_tables.removeOne(g_table);
 	ui->list_table->addItem(g_table);
 	ui->list_table->addItems(list_tables);
+
+    ui->new_name_table->setText(g_table);
+}
+
+void Filter::on_rename_table_clicked()
+{
+    QString new_name_table = ui->new_name_table->text();
+    int result_change = database.rename_table(new_name_table);
+
+    if (result_change == 1)
+    {
+        popUp->setPopupText("Название таблицы изменено на " + new_name_table);
+        popUp->show();
+    }
+    else
+    {
+        popUp->setPopupText("Ошибка при изменении названия таблицы");
+        popUp->show();
+    }
 }
 
 void Filter::on_new_table_clicked()

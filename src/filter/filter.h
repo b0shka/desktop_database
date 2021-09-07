@@ -25,6 +25,7 @@ public:
 private slots:
 	void on_hide_clicked();
 	void on_close_clicked();
+    void on_rename_table_clicked();
 	void on_new_table_clicked();
 	void on_delete_table_clicked();
 	void on_save_clicked();

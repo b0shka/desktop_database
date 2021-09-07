@@ -447,7 +447,7 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>140</y>
+      <y>170</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -480,7 +480,7 @@ QPushButton::hover {
     <property name="geometry">
      <rect>
       <x>15</x>
-      <y>140</y>
+      <y>170</y>
       <width>186</width>
       <height>31</height>
      </rect>
@@ -503,6 +503,68 @@ QLineEdit::hover {
     </property>
     <property name="placeholderText">
      <string>Название таблицы</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="new_name_table">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>130</y>
+      <width>186</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+	font-size: 14px;
+	color: white;
+	background-color: #404040;
+	border-radius: 5px;
+	padding-left: 7px;
+}
+
+QLineEdit::hover {
+	background-color: #949494;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Переименовать таблицу</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rename_table">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>130</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font-size: 22px;
+	color: #2a2a2a;
+	background-color: #73ffa1;
+	border-radius: 5px;
+	font-weight: bold;
+}
+QPushButton::hover {
+	background-color: #54ff8d;
+}</string>
+    </property>
+    <property name="text">
+     <string>✓</string>
     </property>
    </widget>
   </widget>
